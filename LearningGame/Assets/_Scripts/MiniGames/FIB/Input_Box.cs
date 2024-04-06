@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+// FIB sub_class
 public class Input_Box : MonoBehaviour
 {
     // reference to self
@@ -17,7 +18,7 @@ public class Input_Box : MonoBehaviour
 
     private void Start()
     {
-        FIB_Manager.instance.gameFinished += clearData;
+        GameManager.instance.gameFinished += clearData;
     }
 
     // Update used to check how many answers were answered. If cap met, end game.
@@ -25,7 +26,7 @@ public class Input_Box : MonoBehaviour
     {
         if (answeredQuestions == 5) {
             Debug.Log("Game over");
-            FIB_Manager.instance.EndGame();
+            GameManager.instance.EndGame();
         }
     }
 
@@ -45,7 +46,7 @@ public class Input_Box : MonoBehaviour
             if (inputText == answer)
             {
                 Debug.Log("Correct!");
-                FIB_Manager.instance.IncrementPoints();
+                GameManager.instance.IncrementPoints();
             }
             else
             {
@@ -63,8 +64,12 @@ public class Input_Box : MonoBehaviour
     // Clear questionsAnswered and input box when game over
     void clearData()
     {
-        answeredQuestions= 0;
-        input.text = string.Empty;
+        if (GameManager.instance.gameState == GameManager.GameMode.FIB)
+        {
+            Debug.Log("FIB cleared.");
+            answeredQuestions = 0;
+            input.text = string.Empty;
+        }
     }
 
 }

@@ -12,9 +12,9 @@ public class ScoreSystem : MonoBehaviour
     {
         // Gets TextMeshPro component
         pointsText = GetComponent<TextMeshProUGUI>();
-        FIB_Manager.instance.gameStarted += ResetPoints;
-        FIB_Manager.instance.scoreIncremented += IncrementScore;
-        FIB_Manager.instance.gameFinished += SendPoints;
+        GameManager.instance.gameStarted += ResetPoints;
+        GameManager.instance.scoreIncremented += IncrementScore;
+        GameManager.instance.gameFinished += SendPoints;
     }
 
     void ResetPoints()

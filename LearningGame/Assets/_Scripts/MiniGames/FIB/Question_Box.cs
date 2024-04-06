@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-// NOTE THIS IS ACTUALLY A SCRIPT FOR THE QUESTION BOX I MESSED UP THE NAME
 
 public class Question_Box : MonoBehaviour
 {

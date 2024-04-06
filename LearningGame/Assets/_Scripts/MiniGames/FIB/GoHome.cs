@@ -9,7 +9,7 @@ public class GoHome : MonoBehaviour
     private void Start()
     {
         // Subscribe to gameFinished event to go home.
-        FIB_Manager.instance.gameFinished += navigateHome;
+        GameManager.instance.gameFinished += navigateHome;
     }
 
     public void navigateHome()
