@@ -25,7 +25,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         // subscribe to events. (all games)
-        FIB_Manager.instance.gameFinished += fetchScore;
+        fetchScore();
         // 
     }
 
