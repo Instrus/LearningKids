@@ -2,6 +2,10 @@ using TMPro;
 using UnityEngine;
 
 
+// can add an optional answer set (2d array, 2nd element = 4) for FlashCards. Need a function to pair it with.
+// the function will be called from FlashCardsAnswerSet though.
+// needs to be a custom class or something. look at a tutorial. Something about a serializable class
+
 public class Question_Box : MonoBehaviour
 {
     // Reference to the Answer Box Text

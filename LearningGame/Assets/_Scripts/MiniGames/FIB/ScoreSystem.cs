@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -12,9 +10,12 @@ public class ScoreSystem : MonoBehaviour
     {
         // Gets TextMeshPro component
         pointsText = GetComponent<TextMeshProUGUI>();
+
+        // subscribes at start of runtime. There will only be on score system so just call game managers events when needed.
         GameManager.instance.gameStarted += ResetPoints;
         GameManager.instance.scoreIncremented += IncrementScore;
         GameManager.instance.gameFinished += SendPoints;
+
     }
 
     void ResetPoints()

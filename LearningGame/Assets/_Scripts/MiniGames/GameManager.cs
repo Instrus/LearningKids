@@ -1,9 +1,10 @@
 using UnityEngine;
 using System;
-using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
+
+    // For each game, call any events needed at the time. Within each function called a check on state will occur.
 
     // singleton pattern
     public static GameManager instance { get; private set; }

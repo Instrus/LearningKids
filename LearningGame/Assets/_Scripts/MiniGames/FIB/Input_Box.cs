@@ -1,14 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-// FIB sub_class
+// FIB's Input box - determines most of the log of FIB. Works with GameManager like every other.
 public class Input_Box : MonoBehaviour
 {
     // reference to self
     public TMP_InputField input;
-    public FIB_Manager points;
 
     // reference to question box (to get answer)
     [SerializeField] public Question_Box questionBox;
@@ -55,15 +52,16 @@ public class Input_Box : MonoBehaviour
 
             // increment count of answered questions
             answeredQuestions += 1;
-            // Get another question
+            // get another question
             questionBox.RandomQuestion();
         }
         
     }
 
-    // Clear questionsAnswered and input box when game over
+    // clear questionsAnswered and input box when game over
     void clearData()
     {
+        // function only runs when the right game mode is selected
         if (GameManager.instance.gameState == GameManager.GameMode.FIB)
         {
             Debug.Log("FIB cleared.");
