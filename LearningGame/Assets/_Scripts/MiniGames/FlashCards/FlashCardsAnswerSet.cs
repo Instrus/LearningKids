@@ -25,10 +25,10 @@ public class FlashCardsAnswerSet : MonoBehaviour
     {
         GameManager.instance.gameFinished += clearData;
         // test values for now
-        text[0].text = "Jesse";
-        text[1].text = "Walter";
-        text[2].text = "Knocks";
-        text[3].text = "Danger";
+        text[0].text = "parents";
+        text[1].text = "address";
+        text[2].text = "911";
+        text[3].text = "phone number";
     }
 
     // update used to check how many answers were answered. If cap met, end game.
