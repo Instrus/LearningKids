@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class PlayerData : MonoBehaviour // Keep as mono because of awake function
 {
+    // Path to scoreboard JSON file
+    private string jsonFilePath;
 
     // Singleton
     public static PlayerData instance { get; private set; }
@@ -17,10 +20,21 @@ public class PlayerData : MonoBehaviour // Keep as mono because of awake functio
         {
             instance = this;
         }
+
+        // Set the relative path to the scoreboard in the persistent data path
+        jsonFilePath = Path.Combine(Application.persistentDataPath, "scoreboard.json");
+
+        // Load the initial scoreboard data from Resources if it doesn't exist in the persistent data path
+        if (!File.Exists(jsonFilePath))
+        {
+            LoadInitialScoreboardData();
+        }
+
+        // Load the player data from the persistent data path
+        LoadPlayerDataFromFile();
     }
 
     // Holds data of player. Stored on local device. (work on save after)
-
     // Change these to be null (or equivalent) at first later.
     // PlayerID
     private int playerID = 1;
@@ -85,6 +99,9 @@ public class PlayerData : MonoBehaviour // Keep as mono because of awake functio
     public void setScore(int score)
     {
         this.score = score;
+
+        // Save the score locally
+        SavePlayerDataToFile();
     }
 
     // increments the score (verify through testing)
@@ -114,5 +131,70 @@ public class PlayerData : MonoBehaviour // Keep as mono because of awake functio
         setCurrency(newCurrency);
     }
 
-    // Need a save/load function later.
+    // FILE SAVE/LOAD FUNCTIONS ================================================
+
+    // Save the player's score to the persistent JSON file
+    private void SavePlayerDataToFile()
+    {
+        PlayerList playerList = LoadScoreboardFromFile();
+
+        Player player = playerList.players.Find(p => p.username == username);
+
+        if (player != null)
+        {
+            player.score = score;
+        }
+        else
+        {
+            playerList.players.Add(new Player { username = username, score = score });
+        }
+
+        // Sort the players based on their scores (ascending order)
+        playerList.players.Sort((a, b) => a.score.CompareTo(b.score));
+
+        string persistentScoreboardFilePath = Path.Combine(Application.persistentDataPath, "scoreboard.json");
+        string json = JsonUtility.ToJson(playerList);
+        File.WriteAllText(persistentScoreboardFilePath, json);
+    }
+
+    // Load the persistent JSON file into memory
+    private PlayerList LoadScoreboardFromFile()
+    {
+        string persistentScoreboardFilePath = Path.Combine(Application.persistentDataPath, "scoreboard.json");
+        if (File.Exists(persistentScoreboardFilePath))
+        {
+            string json = File.ReadAllText(persistentScoreboardFilePath);
+            return JsonUtility.FromJson<PlayerList>(json);
+        }
+        else
+        {
+            Debug.LogWarning("Scoreboard file not found. path: " + persistentScoreboardFilePath);
+            return new PlayerList { players = new System.Collections.Generic.List<Player>() };
+        }
+    }
+
+    // Load the player's score from the JSON file into memory
+    private void LoadPlayerDataFromFile()
+    {
+        if (File.Exists(jsonFilePath))
+        {
+            string json = File.ReadAllText(jsonFilePath);
+            PlayerList playerList = JsonUtility.FromJson<PlayerList>(json);
+
+            Player player = playerList.players.Find(p => p.username == username);
+
+            if (player != null)
+            {
+                score = player.score;
+            }
+        }
+    }
+
+    // Load the scoreboard from the non-persistent writable JSON file
+    private void LoadInitialScoreboardData()
+    {
+        string initialScoreboardFilePath = "scoreboard";  // Assumes the file is named "scoreboard.json" in the Resources folder
+        string json = Resources.Load<TextAsset>(initialScoreboardFilePath).text;
+        File.WriteAllText(jsonFilePath, json);
+    }
 }
