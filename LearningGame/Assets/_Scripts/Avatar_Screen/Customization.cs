@@ -18,7 +18,7 @@ public class Customization : MonoBehaviour
     }
    }
 
-   public void Swap(){
+   public void SwapFor(){
     if(index < options.Length - 1){
         index++;
     } else{
@@ -26,4 +26,16 @@ public class Customization : MonoBehaviour
     }
    }
 
-}
+   public void SwapBack(){
+    if(index<options.Length){
+        index--;
+    }    
+    if(index<0){
+        index=options.Length-1;
+    }
+   }
+    }
+
+   
+
+
