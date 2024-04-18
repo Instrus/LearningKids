@@ -4,22 +4,21 @@ using UnityEngine;
 public class FlashCardsAnswerSet : MonoBehaviour
 {
 
-    // Store this script in AnswerSet to keep track of values (such as answered questions)
+    // Script for AnswerSet (FlashCards)
 
-    // reference to each answer box button
-    [SerializeField] GameObject[] answerBoxes;
-    // reference to each asnwer box texts
-    [SerializeField] TextMeshProUGUI[] text;
+    // reference to each answer button texts
+    [SerializeField] TextMeshProUGUI[] answerTexts;
 
-    // for compaing answer
+    // reference to question_box to compare answers between a buttons text and questionbox's answer
     [SerializeField] Question_Box questionBox;
 
-    // keeps track of how many questions the user answers.
+    // keeps track of how many questions the user answers during the minigame
     public int answeredQuestions;
 
 
     private void Awake()
     {
+        // subscribe function to the event
         GameManager.instance.gameFinished += clearData;
     }
 
@@ -47,7 +46,7 @@ public class FlashCardsAnswerSet : MonoBehaviour
     // index = which button was selected. get the text of that button and compare it to answer
     public void checkAnswer(int index)
     {
-        string userInput = text[index].text;
+        string userInput = answerTexts[index].text;
 
         // get answer from question box
         string answer = questionBox.answers[questionBox.questionIndex];
