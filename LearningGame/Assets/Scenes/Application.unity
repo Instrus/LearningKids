@@ -5457,9 +5457,9 @@ RectTransform:
   - {fileID: 223722680}
   m_Father: {fileID: 1481258648}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -800}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1200, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &514840783
@@ -8894,9 +8894,9 @@ RectTransform:
   - {fileID: 977155709}
   m_Father: {fileID: 1481258648}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -1400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1200, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &856936875
@@ -12436,7 +12436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1156532113
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19925,6 +19925,7 @@ GameObject:
   - component: {fileID: 1935485924}
   - component: {fileID: 1935485927}
   - component: {fileID: 1935485926}
+  - component: {fileID: 1935485928}
   - component: {fileID: 1935485925}
   m_Layer: 5
   m_Name: Question_Box
@@ -19973,11 +19974,11 @@ MonoBehaviour:
   - Who do you call when someone is hurt?
   - Who do you call when you are lost?
   answers:
-  - address
-  - phone number
+  - Address
+  - Phone number
   - 911
   - 911
-  - parents
+  - Parents
   questionIndex: 0
 --- !u!114 &1935485926
 MonoBehaviour:
@@ -20017,6 +20018,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935485923}
   m_CullTransparentMesh: 1
+--- !u!114 &1935485928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935485923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0abbb8a404a2454fa58841f4fa33b59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text:
+  - {fileID: 1423190468}
+  - {fileID: 444185995}
+  - {fileID: 872578534}
+  - {fileID: 777955470}
+  elAnswers:
+  - answerss:
+    - Jelly
+    - Beans
+    - Addres
+    - Fudge
+  - answerss:
+    - Phone number
+    - Apple soda
+    - French fries
+    - Bacon
+  - answerss:
+    - Silco
+    - 911
+    - Tartar sauce
+    - WHY
+  - answerss:
+    - 911
+    - 119
+    - 191
+    - 199
+  - answerss:
+    - Parents
+    - Toast
+    - Green Beans
+    - Eggroll Soup
 --- !u!1 &1938186508
 GameObject:
   m_ObjectHideFlags: 0
@@ -20752,9 +20796,9 @@ RectTransform:
   - {fileID: 1441370291}
   m_Father: {fileID: 1481258648}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1200, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2027593025

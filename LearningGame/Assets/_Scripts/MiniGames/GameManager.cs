@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     // events
     public event Action gameStarted, gameFinished, scoreIncremented;
+    public event Action<int> nextQuestion;
 
     // game states (game modes / minigames)
     public enum GameMode
@@ -69,6 +70,12 @@ public class GameManager : MonoBehaviour
     public void StartGame() { gameStarted?.Invoke(); enableScore(); }
 
     public void IncrementPoints() { scoreIncremented?.Invoke(); }
+
+    // Probably need to generate a random number, how do I pass the random number to both functions? - EXPERIMENTAL
+    public void NextQuestion() { 
+        
+        int randomIndex = UnityEngine.Random.Range(0, 5);
+        nextQuestion?.Invoke(randomIndex); }
 
     // Score disabled and state cleared at end
     public void EndGame() { gameFinished?.Invoke(); disableScore(); clearState(); }

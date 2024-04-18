@@ -53,7 +53,8 @@ public class Input_Box : MonoBehaviour
             // increment count of answered questions
             answeredQuestions += 1;
             // get another question
-            questionBox.RandomQuestion();
+            //questionBox.RandomQuestion();
+            GameManager.instance.NextQuestion();
         }
         
     }

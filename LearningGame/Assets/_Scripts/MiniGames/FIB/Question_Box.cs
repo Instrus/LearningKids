@@ -21,29 +21,25 @@ public class Question_Box : MonoBehaviour
 
     // length to make sure there is at least one question in the pool
     int length = 0;
+
+    private void Awake()
+    {
+        GameManager.instance.nextQuestion += RandomQuestion;
+    }
+
     private void Start()
     {
         length = questions.Length;
-        RandomQuestion();
+        GameManager.instance.NextQuestion(); //Event call
     }
 
     // Methods:
 
-    // Get next question (random selection)
-    public void RandomQuestion()
+    // Get next question (random selection) (can be changed to alter question or something like that. The real random question happens in the game manager.
+    public void RandomQuestion(int x)
     {
-        // if there is a question in the pool,
-        if (length > 0)
-        {
-            int randomIndex = Random.Range(0, length);
-
-            string randomQuestion = questions[randomIndex];
-
-            // Update text
-            text.text = randomQuestion;
-            // get index
-            questionIndex = randomIndex;
-        }
-
+        string randomQuestion = questions[x];
+        text.text = randomQuestion;
+        questionIndex = x;
     }
 }

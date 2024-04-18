@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Windows;
 
 public class FlashCardsAnswerSet : MonoBehaviour
 {
@@ -21,14 +18,9 @@ public class FlashCardsAnswerSet : MonoBehaviour
     public int answeredQuestions;
 
 
-    private void Start()
+    private void Awake()
     {
         GameManager.instance.gameFinished += clearData;
-        // test values for now
-        text[0].text = "parents";
-        text[1].text = "address";
-        text[2].text = "911";
-        text[3].text = "phone number";
     }
 
     // update used to check how many answers were answered. If cap met, end game.
@@ -74,6 +66,6 @@ public class FlashCardsAnswerSet : MonoBehaviour
         // increment count of answered questions
         answeredQuestions += 1;
         // get another question
-        questionBox.RandomQuestion();
+        GameManager.instance.NextQuestion();
     }
 }
