@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
-using UnityEngine.Rendering;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public class ScoreManager : MonoBehaviour
     private string jsonFilePath;
 
     // Separate the top 3 scores from the rest
-    public TextMeshProUGUI[] topThreeEntries;
+    //public TextMeshProUGUI[] topThreeEntries;
     public TextMeshProUGUI[] otherEntries;
 
     // Instantiate the scoreboard
@@ -73,11 +72,11 @@ public class ScoreManager : MonoBehaviour
             int playerScore = scoreboard[playerRank].score;
 
             // Display the top three scores
-            for (int i = 0; i < Mathf.Min(3, scoreboard.Count); i++)
-            {
-                int index = scoreboard.Count - 1 - i;
-                topThreeEntries[i].text = $"{i + 1}. {scoreboard[index].username}: {scoreboard[index].score}";
-            }
+            //for (int i = 0; i < Mathf.Min(3, scoreboard.Count); i++)
+            //{
+            //    int index = scoreboard.Count - 1 - i;
+            //    topThreeEntries[i].text = $"{i + 1}. {scoreboard[index].username}: {scoreboard[index].score}";
+            //}
 
             // Display the previous 2 and next 2 scores relative to the player's rank
             int startIndex = Mathf.Max(0, playerRank - 2);
@@ -117,6 +116,7 @@ public class Player
 {
     public string username;
     public int score;
+    public int currency;
 }
 
 // The list of all entries in the scoreboard

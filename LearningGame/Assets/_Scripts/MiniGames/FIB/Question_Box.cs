@@ -19,18 +19,25 @@ public class Question_Box : MonoBehaviour
     // index to pair answer with question
     public int questionIndex;
 
-    // length to make sure there is at least one question in the pool
-    int length = 0;
-
-    private void Awake()
+    // On game object enabled, subscribe events
+    private void OnEnable()
     {
         GameManager.instance.nextQuestion += RandomQuestion;
+        //GameManager.instance.gameStarted += UpdatePoolCount;
+    }
+
+    // On game object disable, unsubscribe from events
+    private void OnDisable()
+    {
+        GameManager.instance.nextQuestion -= RandomQuestion;
+        //GameManager.instance.gameStarted -= UpdatePoolCount;
     }
 
     private void Start()
     {
-        length = questions.Length;
         GameManager.instance.NextQuestion(); //Event call
+        // Updates the GameManagers pool count
+        GameManager.instance.currentPoolCount = questions.Length;
     }
 
     // Methods:
@@ -42,4 +49,11 @@ public class Question_Box : MonoBehaviour
         text.text = randomQuestion;
         questionIndex = x;
     }
+
+    // Updates GameManagers poolCount.
+    //public void UpdatePoolCount()
+    //{
+    //    print("Updated pool count!");
+    //    GameManager.instance.currentPoolCount = questions.Length;
+    //}
 }

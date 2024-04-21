@@ -13,9 +13,14 @@ public class Input_Box : MonoBehaviour
     // keeps track of how many questions the user answered
     public int answeredQuestions;
 
-    private void Start()
+    private void OnEnable()
     {
         GameManager.instance.gameFinished += clearData;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.instance.gameFinished -= clearData;
     }
 
     // Update used to check how many answers were answered. If cap met, end game.

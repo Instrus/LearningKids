@@ -16,10 +16,15 @@ public class FlashCardsAnswerSet : MonoBehaviour
     public int answeredQuestions;
 
 
-    private void Awake()
+    private void OnEnable()
     {
         // subscribe function to the event
         GameManager.instance.gameFinished += clearData;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.instance.gameFinished -= clearData;
     }
 
     // update used to check how many answers were answered. If cap met, end game.

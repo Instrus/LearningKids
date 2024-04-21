@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -143,6 +141,7 @@ public class PlayerData : MonoBehaviour // Keep as mono because of awake functio
         if (player != null)
         {
             player.score = score;
+            player.currency= currency;
         }
         else
         {
@@ -186,7 +185,10 @@ public class PlayerData : MonoBehaviour // Keep as mono because of awake functio
             if (player != null)
             {
                 score = player.score;
+                currency = player.currency;
             }
+
+            
         }
     }
 
