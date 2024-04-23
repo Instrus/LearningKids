@@ -61,6 +61,9 @@ public class Input_Box : MonoBehaviour
             //questionBox.RandomQuestion();
             GameManager.instance.NextQuestion();
         }
+
+        // clear answer
+        input.text = "";
         
     }
 

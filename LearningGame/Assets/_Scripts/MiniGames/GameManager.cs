@@ -25,10 +25,13 @@ public class GameManager : MonoBehaviour
     // Keeps track of current question index - TEMPORARY SOLUTION
     public int currentQuestionIndex;
 
+    public int randomIndex;
+
     private void Start()
     {
         currentPoolCount= 0;
         currentQuestionIndex= 0;
+        randomIndex = 0;
     }
 
     // events
@@ -82,12 +85,18 @@ public class GameManager : MonoBehaviour
 
     public void IncrementPoints() { scoreIncremented?.Invoke(); }
 
-    // Probably need to generate a random number, how do I pass the random number to both functions? - EXPERIMENTAL
+    // generates a random number and selects a random question from the pool
     public void NextQuestion() 
-    {    
+    {
         // Choose a random question from the pool of questions
-        int randomIndex = UnityEngine.Random.Range(0, currentPoolCount);
-        nextQuestion?.Invoke(randomIndex); 
+        do
+        {
+            randomIndex = UnityEngine.Random.Range(0, currentPoolCount);
+        } while (randomIndex == currentQuestionIndex);
+
+        nextQuestion?.Invoke(randomIndex);
+        // update currentQuestionIndex
+        currentQuestionIndex = randomIndex;
     }
 
     // Score disabled and state cleared at end

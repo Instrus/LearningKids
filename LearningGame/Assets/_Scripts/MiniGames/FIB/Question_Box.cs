@@ -22,6 +22,9 @@ public class Question_Box : MonoBehaviour
     // On game object enabled, subscribe events
     private void OnEnable()
     {
+        // Updates the GameManagers pool count
+        GameManager.instance.currentPoolCount = questions.Length; // may need to make this an event instead as different games have different counts?
+
         GameManager.instance.nextQuestion += RandomQuestion;
         //GameManager.instance.gameStarted += UpdatePoolCount;
     }
@@ -36,8 +39,7 @@ public class Question_Box : MonoBehaviour
     private void Start()
     {
         GameManager.instance.NextQuestion(); //Event call
-        // Updates the GameManagers pool count
-        GameManager.instance.currentPoolCount = questions.Length;
+        
     }
 
     // Methods:
