@@ -1,5 +1,7 @@
 using UnityEngine;
 
+
+// This script is ran when a minigame ends. Just sends user back to home page.
 public class GoHome : MonoBehaviour
 {
     // Close current game page, Go back to home page.
@@ -8,18 +10,17 @@ public class GoHome : MonoBehaviour
     [SerializeField] GameObject Matching;
     [SerializeField] GameObject HomePage;
 
-    // problem: GoHome tries to run after any game. Right now the MiniGamePage only references FIB. Need to make it work for the others. 
-    // Note: It's attached to GameManager so I'd probably need other conditions. Like depending on game manager state, close that certain page. etc.
-
-    private void Start()
+    private void Awake()
     {
         // Subscribe to gameFinished event to go home.
-        GameManager.instance.gameFinished += navigateHome;
+        GameManager.instance.gameFinished += NavigateHome;
     }
 
-    public void navigateHome()
+    // disables any minigame that might be running and sends user to home page
+    public void NavigateHome()
     {
         HomePage.SetActive(true);
+
         if (FIB.activeInHierarchy == true)
         {
             FIB.SetActive(false);

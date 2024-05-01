@@ -1,10 +1,9 @@
 using UnityEngine;
 using System;
 
+// GameManager oversees all events during runtime of the application
 public class GameManager : MonoBehaviour
 {
-
-    // For each game, call any events needed at the time. Within each function called a check on state will occur.
 
     // singleton pattern
     public static GameManager instance { get; private set; }
@@ -20,23 +19,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Keeps track of each games question pool count
-    public int currentPoolCount;
-    // Keeps track of current question index - TEMPORARY SOLUTION
-    public int currentQuestionIndex;
-
+    // tracks current running game's question pool count
+    public int poolCount;
+    // track previous question index - prevents two of the same question in a row
+    public int previousQuestionIndex;
+    // used for generating a random number for picking a random question from pool
     public int randomIndex;
-
-    private void Start()
-    {
-        currentPoolCount= 0;
-        currentQuestionIndex= 0;
-        randomIndex = 0;
-    }
-
-    // events
-    public event Action gameStarted, gameFinished, scoreIncremented;
-    public event Action<int> nextQuestion;
+    // tracks users score during minigame (gameobject found within Unity Hierarchy)
+    public GameObject score;
 
     // game states (game modes / minigames)
     public enum GameMode
@@ -47,10 +37,19 @@ public class GameManager : MonoBehaviour
         Matching
     }
 
+    // tracks current game state / mode
     public GameMode gameState;
 
-    public GameObject score;
+    // events
+    public event Action gameStarted, gameFinished, scoreIncremented;
+    public event Action<int> nextQuestion;
 
+    private void Start()
+    {
+        poolCount= 0;
+        previousQuestionIndex= 0;
+        randomIndex = 0;
+    }
 
     // changes gameState
     public void changeState(string newState)
@@ -59,44 +58,42 @@ public class GameManager : MonoBehaviour
         {
             case "FlashCards":
                 gameState = GameMode.FlashCards;
-                Debug.Log("Flashcards");
                 break;
             case "FIB":
                 gameState = GameMode.FIB;
-                Debug.Log("FIB");
                 break;
             case "Matching":
                 gameState = GameMode.Matching;
-                Debug.Log("Matching");
                 break;
             default: 
                 gameState = GameMode.None;
-                Debug.Log("Default");
-                break;
+              break;
         }
     }
 
     public void clearState() { gameState = GameMode.None; }
 
-    // Event calls
+    // Event call functions (event?.Invoke() = event call)
 
-    // Score enabled at start
+    // Score enabled at start of any minigame
     public void StartGame() { gameStarted?.Invoke(); enableScore(); }
 
+    // calls event when user answers a question correctly
     public void IncrementPoints() { scoreIncremented?.Invoke(); }
 
-    // generates a random number and selects a random question from the pool
+    // selects a random question from the pool of questions
     public void NextQuestion() 
     {
-        // Choose a random question from the pool of questions
+        // select new random question - ensures no two same questions in a row
         do
         {
-            randomIndex = UnityEngine.Random.Range(0, currentPoolCount);
-        } while (randomIndex == currentQuestionIndex);
+            randomIndex = UnityEngine.Random.Range(0, poolCount);
+        } while (randomIndex == previousQuestionIndex);
 
+        // event call
         nextQuestion?.Invoke(randomIndex);
-        // update currentQuestionIndex
-        currentQuestionIndex = randomIndex;
+        // update index
+        previousQuestionIndex = randomIndex;
     }
 
     // Score disabled and state cleared at end

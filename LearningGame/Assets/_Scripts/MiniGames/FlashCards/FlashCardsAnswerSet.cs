@@ -1,20 +1,16 @@
 using TMPro;
 using UnityEngine;
 
+// acts as the FlashCards minigame manager
 public class FlashCardsAnswerSet : MonoBehaviour
 {
-
-    // Script for AnswerSet (FlashCards)
-
     // reference to each answer button texts
     [SerializeField] TextMeshProUGUI[] answerTexts;
-
     // reference to question_box to compare answers between a buttons text and questionbox's answer
     [SerializeField] Question_Box questionBox;
 
     // keeps track of how many questions the user answers during the minigame
     public int answeredQuestions;
-
 
     private void OnEnable()
     {
@@ -37,13 +33,12 @@ public class FlashCardsAnswerSet : MonoBehaviour
         }
     }
 
-    // clear questionsAnswered and input box when game over
+    // clear questionsAnswered
     void clearData()
     {
-        // function only runs when the right game mode is selected
+        // function only runs if the right game mode is active
         if (GameManager.instance.gameState == GameManager.GameMode.FlashCards)
         {
-            Debug.Log("FlashCards cleared.");
             answeredQuestions = 0;
         }
     }
@@ -51,9 +46,9 @@ public class FlashCardsAnswerSet : MonoBehaviour
     // index = which button was selected. get the text of that button and compare it to answer
     public void checkAnswer(int index)
     {
+        // get answer on button user selected
         string userInput = answerTexts[index].text;
-
-        // get answer from question box
+        // get answer from questionBox
         string answer = questionBox.answers[questionBox.questionIndex];
 
         // If the user answer the question correctly:

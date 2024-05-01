@@ -4564,7 +4564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 680a7b5eeb4cdf246b85decb2522a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 907758290}
+  questionBoxText: {fileID: 907758290}
   questions:
   - You are lost, and your parents are not answering the phone. You should call ___
   - A police officer asks you where you live. You should give them your ____
@@ -4610,11 +4610,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0b23ffdbe547548988b6cdb61c020f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPoolCount: 0
-  currentQuestionIndex: 0
+  poolCount: 0
+  previousQuestionIndex: 0
   randomIndex: 0
-  gameState: 0
   score: {fileID: 2136112948}
+  gameState: 0
 --- !u!4 &475597347
 Transform:
   m_ObjectHideFlags: 0
@@ -20401,7 +20401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 680a7b5eeb4cdf246b85decb2522a2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 112363728}
+  questionBoxText: {fileID: 112363728}
   questions:
   - A street number is part of what?
   - An area code is part of what?
