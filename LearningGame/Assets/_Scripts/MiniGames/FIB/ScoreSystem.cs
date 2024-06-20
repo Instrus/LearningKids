@@ -3,11 +3,15 @@ using UnityEngine;
 
 public class ScoreSystem : MonoBehaviour
 {
+    PlayerData playerData;
+
     public int points;
     TextMeshProUGUI pointsText;
 
-    void Start()
+    void Awake()
     {
+
+        playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
         // Gets TextMeshPro component
         pointsText = GetComponent<TextMeshProUGUI>();
 
@@ -16,7 +20,12 @@ public class ScoreSystem : MonoBehaviour
         GameManager.instance.scoreIncremented += IncrementScore;
         GameManager.instance.gameFinished += SendPoints;
 
+        ExperimentalGM.instance.gameStarted += ResetPoints;
+        ExperimentalGM.instance.scoreIncremented += IncrementScore;
+        ExperimentalGM.instance.gameFinished += SendPoints;
+
     }
+    // maybe convert OnEnable/Disable subscriptions later
 
     void ResetPoints()
     {
@@ -39,8 +48,8 @@ public class ScoreSystem : MonoBehaviour
     // Updates PlayerDatas currency / score
     void SendPoints()
     {
-        PlayerData.instance.incrementCurrency(points);
-        PlayerData.instance.incrementScore(points);
+        playerData.AddCurrency(points);
+        playerData.AddScore(points);
     }
 
 }

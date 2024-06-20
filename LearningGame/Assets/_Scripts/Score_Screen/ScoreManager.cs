@@ -15,8 +15,13 @@ public class ScoreManager : MonoBehaviour
     // Instantiate the scoreboard
     private List<Player> scoreboard;
 
+    // instead of using a singleton pattern
+    [SerializeField] PlayerData playerData; 
+
     private void Start()
     {
+        playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
+
         // Set the path to the scoreboard
         jsonFilePath = Path.Combine(Application.persistentDataPath, "scoreboard.json");
 
@@ -28,7 +33,7 @@ public class ScoreManager : MonoBehaviour
     public void UpdateScoreboardOnClick()
     {
         // Fetch and log the player's most up to date score
-        int playerScore = PlayerData.instance.getScore();
+        int playerScore = playerData.GetScore();
         Debug.Log("Player Score: " + playerScore);
 
         // Update the player's score in scoreboard.JSON
@@ -40,7 +45,7 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdatePlayerScore(int playerScore)
     {
-        string username = PlayerData.instance.getUsername();
+        string username = playerData.GetUsername();
 
         // Find the player in the scoreboard
         Player player = scoreboard.Find(p => p.username == username);
@@ -64,19 +69,12 @@ public class ScoreManager : MonoBehaviour
     private void UpdateScoreboard()
     {
         // Find the player's rank
-        string playerUsername = PlayerData.instance.getUsername();
+        string playerUsername = playerData.GetUsername();
         int playerRank = scoreboard.FindIndex(p => p.username == playerUsername);
 
         if (playerRank != -1)
         {
             int playerScore = scoreboard[playerRank].score;
-
-            // Display the top three scores
-            //for (int i = 0; i < Mathf.Min(3, scoreboard.Count); i++)
-            //{
-            //    int index = scoreboard.Count - 1 - i;
-            //    topThreeEntries[i].text = $"{i + 1}. {scoreboard[index].username}: {scoreboard[index].score}";
-            //}
 
             // Display the previous 2 and next 2 scores relative to the player's rank
             int startIndex = Mathf.Max(0, playerRank - 2);
@@ -110,7 +108,7 @@ public class ScoreManager : MonoBehaviour
     }
 }
 
-// The data contained in each scoreboard entry
+// The data contained in each scoreboard entry - maybe we should move this to a separate script
 [System.Serializable]
 public class Player
 {

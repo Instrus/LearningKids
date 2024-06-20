@@ -1,29 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class Reset_Pin : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // input field
+    PlayerData playerData;
     [SerializeField] public TMP_InputField input;
 
+    private void Awake()
+    {
+        playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
+    }
+
     public void ChangePin(){
-
         string input_text = input.text; //get input from box
-        PlayerData.instance.setPin(int.Parse(input_text));
-        //Debug.Log(input);
-        
-    }
-    void Start()
-    {
-       
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        playerData.SetPIN(int.Parse(input_text));
+        Debug.Log(input);
     }
 }
