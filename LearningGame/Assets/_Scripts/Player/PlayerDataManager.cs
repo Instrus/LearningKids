@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class PlayerDataManager : MonoBehaviour
 {
-
-    // We can always save just the players data, and add it to the list, then sort the data.
-
     [SerializeField] private PlayerData playerData; // Holds the player's data
     private string jsonFilePath; // Path to scoreboard JSON file
 
