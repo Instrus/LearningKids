@@ -1857,6 +1857,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 951935851}
+        m_TargetAssemblyTypeName: Avatar_E, Assembly-CSharp
+        m_MethodName: SaveAvatarData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 349632407}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -4802,7 +4814,7 @@ GameObject:
   - component: {fileID: 445940046}
   - component: {fileID: 445940045}
   m_Layer: 5
-  m_Name: Back_Button
+  m_Name: Previous_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4871,9 +4883,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HatSprite, Assembly-CSharp
-        m_MethodName: SwapBack
+      - m_Target: {fileID: 951935851}
+        m_TargetAssemblyTypeName: Avatar_E, Assembly-CSharp
+        m_MethodName: HatPrev
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6956,7 +6968,7 @@ GameObject:
   - component: {fileID: 642799455}
   - component: {fileID: 642799457}
   m_Layer: 5
-  m_Name: Back_Button
+  m_Name: Previous_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7063,9 +7075,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CharSprite, Assembly-CSharp
-        m_MethodName: SwapBack
+      - m_Target: {fileID: 951935851}
+        m_TargetAssemblyTypeName: Avatar_E, Assembly-CSharp
+        m_MethodName: AvatarPrev
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13284,7 +13296,7 @@ GameObject:
   - component: {fileID: 1050738034}
   - component: {fileID: 1050738033}
   m_Layer: 5
-  m_Name: Front_Arrow
+  m_Name: Next_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13353,9 +13365,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ShirtSprite, Assembly-CSharp
-        m_MethodName: SwapFor
+      - m_Target: {fileID: 951935851}
+        m_TargetAssemblyTypeName: Avatar_E, Assembly-CSharp
+        m_MethodName: ShirtNext
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13416,7 +13428,7 @@ GameObject:
   - component: {fileID: 1067371706}
   - component: {fileID: 1067371705}
   m_Layer: 5
-  m_Name: Front_Button
+  m_Name: Next_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13485,9 +13497,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CharSprite, Assembly-CSharp
-        m_MethodName: SwapFor
+      - m_Target: {fileID: 951935851}
+        m_TargetAssemblyTypeName: Avatar_E, Assembly-CSharp
+        m_MethodName: AvatarNext
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15385,6 +15397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8f74e00bf166e44b86bb4266af33ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
 --- !u!4 &1277231378
 Transform:
   m_ObjectHideFlags: 0
@@ -16442,7 +16455,7 @@ GameObject:
   - component: {fileID: 1404110269}
   - component: {fileID: 1404110268}
   m_Layer: 5
-  m_Name: Front_Button
+  m_Name: Next_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16511,9 +16524,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HatSprite, Assembly-CSharp
-        m_MethodName: SwapFor
+      - m_Target: {fileID: 951935851}
+        m_TargetAssemblyTypeName: Avatar_E, Assembly-CSharp
+        m_MethodName: HatNext
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16606,6 +16619,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDM: {fileID: 1277231377}
+  playerID: 1
+  username: Blueberry
+  pin: 1234
+  score: 0
+  currency: 0
+  avatarIndex: 0
+  hatIndex: 0
+  shirtIndex: 0
 --- !u!1 &1423190466
 GameObject:
   m_ObjectHideFlags: 0
@@ -21309,7 +21330,7 @@ GameObject:
   - component: {fileID: 1841874978}
   - component: {fileID: 1841874977}
   m_Layer: 5
-  m_Name: Back_Button
+  m_Name: Previous_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21378,9 +21399,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ShirtSprite, Assembly-CSharp
-        m_MethodName: SwapBack
+      - m_Target: {fileID: 951935851}
+        m_TargetAssemblyTypeName: Avatar_E, Assembly-CSharp
+        m_MethodName: ShirtPrev
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
