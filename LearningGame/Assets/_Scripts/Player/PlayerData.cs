@@ -17,8 +17,18 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private int shirtIndex = 0;
     [SerializeField] private List<ContactInfo> contacts = new List<ContactInfo>();
 
+    private void Awake() { 
+        // ensures playerDM is always set
+        playerDM = GameObject.Find("PlayerDataManager").GetComponent<PlayerDataManager>();
+    }
+
     // Save all serialized player data to a persistent JSON file.
-    public void Save() { playerDM.SavePlayerDataToFile(); }
+    public void Save() { 
+        if (playerDM != null)
+            playerDM.SavePlayerDataToFile();
+        else
+            Debug.LogError("PlayerDM does not exist!");
+        }
 
     // Player ID
     public int GetPlayerID() { return playerID; }
