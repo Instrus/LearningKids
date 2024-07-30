@@ -56,49 +56,37 @@ public class Avatar_E : MonoBehaviour
 
     public void AvatarNext()
     {
-        avatarIndex += 1;
-        if (avatarIndex == avatars.Count)
-            avatarIndex = 0;
+        if (avatarIndex < avatars.Count -1 ) avatarIndex += 1;
         avatar.sprite = avatars[avatarIndex];
     }
 
     public void AvatarPrev()
     {
-        avatarIndex -= 1;
-        if (avatarIndex < 0)
-            avatarIndex = avatars.Count - 1;
+        if (avatarIndex > 0) avatarIndex -= 1;
         avatar.sprite = avatars[avatarIndex];
     }
 
     public void HatNext()
     {
-        hatIndex += 1;
-        if (hatIndex == hats.Count)
-            hatIndex = 0;
+        if (hatIndex < hats.Count - 1) hatIndex += 1;
         hat.sprite = hats[hatIndex];
     }
 
     public void HatPrev()
     {
-        hatIndex -= 1;
-        if (hatIndex < 0)
-            avatarIndex = hats.Count - 1;
+        if (hatIndex > 0) hatIndex -= 1;
         hat.sprite = hats[hatIndex];
     }
 
     public void ShirtNext()
     {
-        shirtIndex += 1;
-        if (shirtIndex == shirts.Count)
-            shirtIndex = 0;
+        if (shirtIndex < shirts.Count -1) shirtIndex += 1;
         shirt.sprite = shirts[shirtIndex];
     }
 
     public void ShirtPrev()
     {
-        shirtIndex -= 1;
-        if (shirtIndex < 0)
-            shirtIndex = shirts.Count - 1;
+        if (shirtIndex > 0) shirtIndex -= 1;
         shirt.sprite = shirts[shirtIndex];
     }
 

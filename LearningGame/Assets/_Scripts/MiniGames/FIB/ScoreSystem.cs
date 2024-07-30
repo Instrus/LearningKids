@@ -16,9 +16,9 @@ public class ScoreSystem : MonoBehaviour
         pointsText = GetComponent<TextMeshProUGUI>();
 
         // subscribes at start of runtime. There will only be on score system so just call game managers events when needed.
-        GameManager.instance.gameStarted += ResetPoints;
-        GameManager.instance.scoreIncremented += IncrementScore;
-        GameManager.instance.gameFinished += SendPoints;
+        //GameManager.instance.gameStarted += ResetPoints;
+        //GameManager.instance.scoreIncremented += IncrementScore;
+        //GameManager.instance.gameFinished += SendPoints;
 
         ExperimentalGM.instance.gameStarted += ResetPoints;
         ExperimentalGM.instance.scoreIncremented += IncrementScore;
