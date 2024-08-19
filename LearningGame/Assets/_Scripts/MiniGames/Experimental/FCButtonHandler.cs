@@ -10,7 +10,7 @@ public class FCButtonHandler : MonoBehaviour
     private void Awake()
     {
         // find FlashCard game object -> component
-        fc = GameObject.Find("FlashCards (experimental)").GetComponent<FlashCards_E>();
+        fc = GameObject.Find("FlashCards").GetComponent<FlashCards_E>();
         // get button text component
         buttonText = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }

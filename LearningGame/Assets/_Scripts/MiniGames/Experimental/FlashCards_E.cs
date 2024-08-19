@@ -13,6 +13,8 @@ public class FlashCards_E : MonoBehaviour
     [SerializeField] TextMeshProUGUI button3;
     [SerializeField] TextMeshProUGUI button4;
 
+    public int answerCount = 0; // number of questions player has answered.
+
     private int currentScore; // keeps track of current earned points (remove later)
 
     private void OnEnable()
@@ -23,9 +25,6 @@ public class FlashCards_E : MonoBehaviour
         RequestCard(); // request card from start
     }
 
-    // fix later to handle a specific amount of questions instead
-    private void Update() { if (currentScore == 40) { EndGame(); } }
-
     private void EndGame()
     {
         ExperimentalGM.instance.EndGame(); //event call
@@ -35,8 +34,10 @@ public class FlashCards_E : MonoBehaviour
     // next question - request from GameManager
     public void RequestCard()
     {
-        nextCard = ExperimentalGM.instance.GetRandomCard();
-        SetUIElementsData();
+        if (answerCount < 5) {
+            nextCard = ExperimentalGM.instance.GetRandomCard();
+            SetUIElementsData();
+        }
     }
 
     // Sets the UI elements of FlashCards to the next cards questions/answer set
@@ -68,7 +69,25 @@ public class FlashCards_E : MonoBehaviour
             Debug.Log("answer is false");
         }
 
+        ExperimentalGM.instance.IncrementPoints();
+
+        IncrementAnswerCount();
         RequestCard();
+    }
+
+    public void IncrementAnswerCount()
+    {
+        answerCount++;
+        CheckAnswerCount();
+    }
+
+    public void CheckAnswerCount()
+    {
+        if (answerCount >= 5)
+        {
+            print("Game over");
+            EndGame();
+        }
     }
 
 }
