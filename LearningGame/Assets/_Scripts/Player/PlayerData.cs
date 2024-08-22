@@ -74,6 +74,7 @@ public class PlayerData : MonoBehaviour
 }
 
 // Ensure names and phone numbers stay paired up
+[System.Serializable]
 public class ContactInfo
 {
     public string name;

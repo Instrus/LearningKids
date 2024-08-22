@@ -10,7 +10,7 @@ public class NavigationBar : MonoBehaviour
 
     [SerializeField] GameObject homeScreen;
     [SerializeField] GameObject settingsScreen;
-    //[SerializeField] GameObject profileScreen; // future implement
+    [SerializeField] GameObject avatarScreen;
 
     // Maybe this script will be housed on the navbar, but the buttons will call functions from here.
 
@@ -26,15 +26,23 @@ public class NavigationBar : MonoBehaviour
         if (!homeScreen.activeInHierarchy) homeScreen.SetActive(true);
 
         if (settingsScreen.activeInHierarchy) settingsScreen.SetActive(false);
-        //if (profileScreen.activeInHierarchy) profileScreen.SetActive(false);
+        if (avatarScreen.activeInHierarchy) avatarScreen.SetActive(false);
     }
 
     public void GoSettings()
     {
-        if(!settingsScreen.activeInHierarchy) settingsScreen.SetActive(true);
+        if (!settingsScreen.activeInHierarchy) settingsScreen.SetActive(true);
 
         if (homeScreen.activeInHierarchy) homeScreen.SetActive(false);
-        //if (profileScreen.activeInHierarchy) profileScreen.SetActive(false);
+        if (avatarScreen.activeInHierarchy) avatarScreen.SetActive(false);
+    }
+
+    public void GoAvatar()
+    {
+        if (!avatarScreen.activeInHierarchy) avatarScreen.SetActive(true);
+
+        if (homeScreen.activeInHierarchy) homeScreen.SetActive(false);
+        if (settingsScreen.activeInHierarchy) settingsScreen.SetActive(false);
     }
 
 }
