@@ -12,6 +12,11 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private int pin = 1234;
     [SerializeField] private int score = 0;
     [SerializeField] private int currency = 0;
+    // unlocked cosmetics are tracked here.  link between cosmetics database and loading to avatar (add addition method)
+    public List<int> unlockedAvatarIDs= new List<int>(); // add to save
+    public List<int> unlockedHatsIDs = new List<int>(); // add to save
+    public List<int> unlockedClothesIDs = new List<int>(); // add to save
+    // tracks current equipped avatar cosmetics
     [SerializeField] private int avatarIndex = 0;
     [SerializeField] private int hatIndex = 0;
     [SerializeField] private int shirtIndex = 0;
@@ -20,6 +25,30 @@ public class PlayerData : MonoBehaviour
     private void Awake() { 
         // ensures playerDM is always set
         playerDM = GameObject.Find("PlayerDataManager").GetComponent<PlayerDataManager>();
+    }
+
+    // temp - to populate / test avatar
+    private void Start()
+    {
+        if (unlockedHatsIDs.Count == 0)
+        {
+            unlockedAvatarIDs.Add(0);
+            unlockedAvatarIDs.Add(1);
+            unlockedAvatarIDs.Add(2);
+            unlockedAvatarIDs.Add(3);
+        }
+        if (unlockedHatsIDs.Count == 0)
+        {
+            unlockedHatsIDs.Add(0);
+            unlockedHatsIDs.Add(1);
+            unlockedHatsIDs.Add(2);
+        }
+        if (unlockedClothesIDs.Count == 0)
+        {
+            unlockedClothesIDs.Add(0);
+            unlockedClothesIDs.Add(1);
+            unlockedClothesIDs.Add(2);
+        }
     }
 
     // Save all serialized player data to a persistent JSON file.
@@ -70,6 +99,15 @@ public class PlayerData : MonoBehaviour
     { contacts.Add(new ContactInfo(name, phoneNumber)); Save(); }
     public void RemoveContact(string phoneNumber)
     { contacts.RemoveAll(c => c.phoneNumber == phoneNumber); Save(); } // Delete a contact based on the number
+
+    private void OnApplicationQuit()
+    {
+        // ensures no duplicate IDs are saved
+        unlockedAvatarIDs.Clear();
+        unlockedClothesIDs.Clear();
+        unlockedHatsIDs.Clear();
+        playerDM.SavePlayerDataToFile();
+    }
 
 }
 

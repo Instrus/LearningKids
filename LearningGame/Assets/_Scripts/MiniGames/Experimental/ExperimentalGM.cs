@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+// The current game manager, better than the old!
 public class ExperimentalGM : MonoBehaviour
 {
     public GameMode currentMode;

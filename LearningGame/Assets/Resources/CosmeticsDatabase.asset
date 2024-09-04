@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57f3eb3998e8684e81f67b28366664f, type: 3}
+  m_Name: CosmeticsDatabase
+  m_EditorClassIdentifier: 
+  avatarCosmetics:
+  - {fileID: 11400000, guid: 525e46067f766454d97994bb90a1ec52, type: 2}
+  - {fileID: 11400000, guid: 74d9989254b9b1d41ac431f9285f5883, type: 2}
+  - {fileID: 11400000, guid: 265c4eff2657eeb4289c0e03aea1c46b, type: 2}
+  - {fileID: 11400000, guid: fffcc1d985ea9c047b649b1e5e955dd3, type: 2}
+  hatCometics:
+  - {fileID: 11400000, guid: da1112addc801c54498f141b5b136904, type: 2}
+  - {fileID: 11400000, guid: e1adac7882f789c4c98769387ca01623, type: 2}
+  - {fileID: 11400000, guid: 5feabb472ff6c9c48901687876f01d8b, type: 2}
+  - {fileID: 11400000, guid: 8809e70110edf024da7e2c61a24eb00d, type: 2}
+  - {fileID: 11400000, guid: 94daca46693e4574bb9fd2cedf71ef9a, type: 2}
+  - {fileID: 11400000, guid: 528f619b68fe5634da93b4f769ae2678, type: 2}
+  - {fileID: 11400000, guid: 3e56b7d4ae62f1f42b6a36083c64c1e1, type: 2}
+  clothesCosmetics:
+  - {fileID: 11400000, guid: 2e8b5052a230ed54a957e24d59a0d7ec, type: 2}
+  - {fileID: 11400000, guid: e14e1954a64656849b1c34b8941b23d4, type: 2}
+  - {fileID: 11400000, guid: a06191ab38a431a429de70aa854e5bee, type: 2}
+  - {fileID: 11400000, guid: b6f549d622adc04478187a3cf2ace60d, type: 2}
+  - {fileID: 11400000, guid: c1e7ae8e1c3e2804398f24e07728a1a0, type: 2}
+  - {fileID: 11400000, guid: c46a40c412a70784fb85c8f86381df75, type: 2}
+  - {fileID: 11400000, guid: bd9f2085d9277f448ab86c2caaf2df5e, type: 2}
