@@ -28,6 +28,8 @@ public class FCButtonHandler : MonoBehaviour
 
     public IEnumerator CheckAnswer()
     {
+        button.enabled = false;
+
         if (buttonSound!= null)
         {
             AudioManager.instance.PlayClip(buttonSound);
@@ -40,12 +42,11 @@ public class FCButtonHandler : MonoBehaviour
         var colors = button.colors;
         button.image.color = colors.pressedColor;
 
-        // disable buttons for 1 second
-        button.enabled = false; //need to disable all buttons
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.5f);
+        //yield return null;
 
         // Reset the color to its original state
         button.image.color = originalColor;
-        button.enabled = true;
+        //button.enabled = true;
     }
 }

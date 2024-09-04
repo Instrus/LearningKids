@@ -13109,7 +13109,7 @@ Transform:
   m_GameObject: {fileID: 1151253495}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: 0}
+  m_LocalPosition: {x: 0, y: 2.875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14381,7 +14381,7 @@ Transform:
   m_GameObject: {fileID: 1288254827}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1.875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15535,7 +15535,7 @@ Transform:
   m_GameObject: {fileID: 1447998933}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19401,6 +19401,7 @@ MonoBehaviour:
   - {fileID: 1151253495}
   playerPrefab: {fileID: 1132358764814583738, guid: 082c50702e95dfa44af9e5a467cf495b, type: 3}
   NPCprefab: {fileID: 811101383170574375, guid: d9c4c260c6f85b0458a01584cc4592d2, type: 3}
+  coroutineRunning: 0
   popupWindow: {fileID: 1434217943}
 --- !u!222 &1819178255
 CanvasRenderer:

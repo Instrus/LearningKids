@@ -56,6 +56,8 @@ public class FlashCards_E : MonoBehaviour
     private Vector3 NPC1TargetPosition;
     private Vector3 NPC2TargetPosition;
 
+    public bool coroutineRunning = false;
+
     public GameObject popupWindow; // pops up menu when game over
 
     private void OnEnable()
@@ -159,11 +161,16 @@ public class FlashCards_E : MonoBehaviour
     }
 
     // Check if user input equals the Cards answer
-    public IEnumerator CheckAnswer(string buttonText) // can add Ienumerator later if necessary
+    public IEnumerator CheckAnswer(string buttonText)
     {
+        // disable buttons for a time
+        foreach (var button in buttons)
+            button.enabled = false;
+
         // cap check
         if (answerCount < maxAnswers)
         {
+            
             // no answer associated with button error
             if (buttonText == null)
             {
@@ -217,9 +224,7 @@ public class FlashCards_E : MonoBehaviour
             // request a new question
             RequestCard();
 
-            // disable buttons for a time
-            foreach (var button in buttons)
-                button.enabled = false;
+            
             yield return new WaitForSeconds(0.5f);
             // enable buttons
             foreach (var button in buttons)
