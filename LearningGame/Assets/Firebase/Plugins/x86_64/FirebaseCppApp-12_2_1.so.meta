@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: 5b1a2b9a8d0748609fa3195265844d21
+guid: 295f1be45020f5848a08b05581b0f514
 labels:
 - gvh
-- gvh_version-12.2.1
-- gvhp_exportpath-ExternalDependencyManager/Editor/1.2.182/Google.JarResolver.dll
-- gvhp_targets-editor
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -19,20 +16,39 @@ PluginImporter:
   - first:
       Any: 
     second:
-      enabled: 0
+      enabled: 1
       settings: {}
   - first:
       Editor: Editor
     second:
-      enabled: 1
+      enabled: 0
       settings:
+        CPU: x86_64
         DefaultValueInitialized: true
   - first:
-      Windows Store Apps: WindowsStoreApps
+      Standalone: Linux64
+    second:
+      enabled: 1
+      settings:
+        CPU: AnyCPU
+  - first:
+      Standalone: OSXUniversal
+    second:
+      enabled: 1
+      settings:
+        CPU: x86_64
+  - first:
+      Standalone: Win
     second:
       enabled: 0
       settings:
-        CPU: AnyCPU
+        CPU: None
+  - first:
+      Standalone: Win64
+    second:
+      enabled: 1
+      settings:
+        CPU: x86_64
   userData: 
   assetBundleName: 
   assetBundleVariant: 

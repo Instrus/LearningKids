@@ -1,0 +1,31 @@
+{
+  "project_info": {
+    "project_number": "531782998713",
+    "project_id": "learning-kids-db",
+    "storage_bucket": "learning-kids-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531782998713:ios:b0c469ab5de22e1a725968",
+        "android_client_info": {
+          "package_name": "com.UNT.LearningKids"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiOxwW6G8zFYHXV7cYPm7x-C2eCCsZvNw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
