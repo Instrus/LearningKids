@@ -16575,7 +16575,6 @@ MonoBehaviour:
   hatIndex: 0
   shirtIndex: 0
   contacts: []
-<<<<<<< Updated upstream
 --- !u!1 &1411582375
 GameObject:
   m_ObjectHideFlags: 0
@@ -16671,10 +16670,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 97dc9e7cd42986f42a354b84d5a3aae1, type: 2}
   - {fileID: 11400000, guid: 9301d8809eba05a4cb1d14ef5d72c593, type: 2}
   grid: {fileID: 675561972}
-=======
-  effectsVolume: 0
-  musicVolume: 0
->>>>>>> Stashed changes
 --- !u!1 &1434217943
 GameObject:
   m_ObjectHideFlags: 0
