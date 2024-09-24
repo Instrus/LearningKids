@@ -75,7 +75,7 @@ public class PlayerData : MonoBehaviour
     public int GetCurrency() { return currency; }
     public void SetCurrency(int currency) // Do not call. Call AddCurrency
     { this.currency = currency; Save(); }
-    public void AddCurrency(int currency) { SetCurrency(GetCurrency() + currency); }
+    public void AddCurrency(int currency) { SetCurrency(GetCurrency() + currency); } // works for negative values as well.
 
     // Scores
     public int GetScore() { return score; }
@@ -102,6 +102,8 @@ public class PlayerData : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        // REMOVE WHEN FINALIZED
+
         // ensures no duplicate IDs are saved
         unlockedAvatarIDs.Clear();
         unlockedClothesIDs.Clear();

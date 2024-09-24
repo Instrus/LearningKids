@@ -6,16 +6,20 @@ public class DisplayCurrency : MonoBehaviour
     PlayerData playerData;
     [SerializeField] public TextMeshProUGUI currencyText;
 
-    private void Awake()
+    private void OnEnable()
     {
         playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
+        currencyText.text = playerData.GetCurrency().ToString() + "$";
     }
 
-    private void Update()
+    // updates the currency text within the shop. When item is purchased, playerData currency altered also.
+    public void UpdateCurrencyValue(int value) // use a positive number to increase, negative number to decrease
     {
-        int value = playerData.GetCurrency();
-        currencyText.text = ("$" + value.ToString());
+        playerData.AddCurrency(value);
+        currencyText.text = playerData.GetCurrency().ToString() + "$";
     }
+
+
 
 
 
