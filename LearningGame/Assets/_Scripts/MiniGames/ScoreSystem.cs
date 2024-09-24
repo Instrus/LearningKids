@@ -30,7 +30,7 @@ public class ScoreSystem : MonoBehaviour
     void ResetPoints()
     {
         points = 0;
-        pointsText.text = "Score: " + points.ToString();
+        pointsText.text = "Score: " + points.ToString() + " / 100";
     }
 
     void IncrementScore()
@@ -47,7 +47,7 @@ public class ScoreSystem : MonoBehaviour
 
         for (int i = 0; i < 10; i++)
         {
-            pointsText.text = "Score: " + (++points).ToString();
+            pointsText.text = "Score: " + (++points).ToString() + " / 100";
             AudioManager.instance.PlayClip( incrementScoreSound );
             AudioManager.instance.ChangePitch( pitch+=0.25f );
             yield return new WaitForSeconds(0.05f);

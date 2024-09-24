@@ -12,11 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7b079499fb0ca4cbd2c8fc9d125345, type: 3}
   m_Name: CardDatabase
   m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
   FlashCards:
   - {fileID: 11400000, guid: 134802d845f8d0c4b86000e62d1b2a5f, type: 2}
   - {fileID: 11400000, guid: 4cd1c46b482c04749976e6186570b4dd, type: 2}
   - {fileID: 11400000, guid: 39eb36882327afd45ad779b515be9afa, type: 2}
   - {fileID: 11400000, guid: c6a178cdbb7b7454ea59d3cc7c93be9a, type: 2}
+  - {fileID: 11400000, guid: ac949b885085455478637895d6fc2d39, type: 2}
+  - {fileID: 11400000, guid: 90abf2f49506fc54598726422fd67c6c, type: 2}
+  - {fileID: 11400000, guid: abeca848732acbb4babce5be6b304e36, type: 2}
+  - {fileID: 11400000, guid: 47b7decd10e56d14cbb4aac405c2e38b, type: 2}
+  - {fileID: 11400000, guid: c0d1b450ba65e114fafd180c2bccd970, type: 2}
+  - {fileID: 11400000, guid: bd6db2597b29bc547abffeb80afbb0f9, type: 2}
+  - {fileID: 11400000, guid: adcba20efcb4c8748b102b83862adda9, type: 2}
   FIBCards:
   - {fileID: 11400000, guid: 1703ec8b5ca05b74e87247083b2ab4cd, type: 2}
   - {fileID: 11400000, guid: dd56fbfc55f70d24f8c222bc68d5e2f2, type: 2}

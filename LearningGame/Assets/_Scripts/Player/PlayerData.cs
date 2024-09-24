@@ -22,6 +22,10 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private int shirtIndex = 0;
     [SerializeField] private List<ContactInfo> contacts = new List<ContactInfo>();
 
+    // user settings
+    [SerializeField] public int effectsVolume;
+    [SerializeField] public int musicVolume; //getters and setters
+
     private void Awake() { 
         // ensures playerDM is always set
         playerDM = GameObject.Find("PlayerDataManager").GetComponent<PlayerDataManager>();
@@ -99,6 +103,13 @@ public class PlayerData : MonoBehaviour
     { contacts.Add(new ContactInfo(name, phoneNumber)); Save(); }
     public void RemoveContact(string phoneNumber)
     { contacts.RemoveAll(c => c.phoneNumber == phoneNumber); Save(); } // Delete a contact based on the number
+
+    // user settings
+    public void ChangeEffectsVolume(float volume) { effectsVolume = (int)volume; }
+    public void ChangeMusicVolume(float volume) { musicVolume = (int)volume; }
+
+    public int GetEffectsVolume() { return effectsVolume; }
+    public int GetMusicVolume() { return musicVolume; }
 
     private void OnApplicationQuit()
     {

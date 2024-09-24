@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Card : ScriptableObject
 {
+    // mark true if contact info card.
+    // set question, answer, answer index after picked?
+    public bool contactInfoCard;
     public string question;
     public string answer;
     public int answerIndex;

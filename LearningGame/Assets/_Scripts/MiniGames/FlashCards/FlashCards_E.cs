@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class FlashCards_E : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class FlashCards_E : MonoBehaviour
     [SerializeField] TextMeshProUGUI button2;
     [SerializeField] TextMeshProUGUI button3;
     [SerializeField] TextMeshProUGUI button4;
+    [SerializeField] TextMeshProUGUI answerCountText;
 
     // button components (to enable/disable)
     [SerializeField] Button[] buttons;
@@ -27,6 +29,8 @@ public class FlashCards_E : MonoBehaviour
 
     // DATA
     private Card card;
+    private Card[] cards = new Card[10]; // card pool to ensure each question is unique per game session
+    private int currentCardIndex = 0; // increment from first to last card
     private int currentScore; // keeps track of current earned points
     public int answerCount = 0; // number of correct questions player has answered.
     [SerializeField] private int maxAnswers;
@@ -58,15 +62,25 @@ public class FlashCards_E : MonoBehaviour
 
     public bool coroutineRunning = false;
 
+    // audio clips
+    [SerializeField] AudioClip whistle;
+
     public GameObject popupWindow; // pops up menu when game over
 
     private void OnEnable()
     {
+
+        // request random cards from card database, no dupes.
+        RequestCards(maxAnswers, ExperimentalGM.instance.cardDB.FlashCards.Length);
+        // requesting 10 cards out of all available cards (cardDB needs at least 10 cards to work properly)
+
+        currentCardIndex = 0;
         currentScore = 0;
         NPC1_Score = 0;
         NPC2_Score = 0;
         answerCount = 0;
         map.SetActive(true);
+        answerCountText.text = answerCount.ToString() + " / " + maxAnswers;
 
         // enable buttons
         foreach (var button in buttons)
@@ -74,7 +88,8 @@ public class FlashCards_E : MonoBehaviour
 
         ExperimentalGM.instance.SetGameMode(ExperimentalGM.GameMode.FlashCards); // set GameManager mode to FlashCards
         ExperimentalGM.instance.StartGame(); // event call
-        RequestCard(); // initial card request
+        //RequestCard(); // initial card request
+        NextCard();
 
         // track boundaries
         playerTrackBounds = new Vector3(tracks[0].GetComponent<Collider2D>().bounds.size.x,
@@ -135,18 +150,42 @@ public class FlashCards_E : MonoBehaviour
         button2.text = card.answerSet[1];
         button3.text = card.answerSet[2];
         button4.text = card.answerSet[3];
+
+        //answerCountText.text = answerCount.ToString() + " / " + maxAnswers.ToString();
     }
 
-    // next question - request from GameManager
-    public void RequestCard()
+    public void RequestCards(int size, int range)
     {
-        if (answerCount < maxAnswers)
+        System.Random rand = new System.Random();
+        HashSet<int> numbers = new HashSet<int>();
+
+        // get random but unique numbers to request cards with
+        while (numbers.Count < size)
         {
-            card = ExperimentalGM.instance.GetRandomCard();
+            int randomNumber = rand.Next(0, range);
+            numbers.Add(randomNumber); // HashSet ensures no duplicates
+        }
+
+        // populate card pool
+        int tempIndex = 0;
+        foreach (int number in numbers) {
+            //cards[tempIndex++] = ExperimentalGM.instance.cardDB.FlashCards[number];
+            cards[tempIndex++] = ExperimentalGM.instance.cardDB.RequestFlashCards(number);
+        }
+
+    }
+
+    public void NextCard()
+    {
+        if (currentCardIndex < cards.Length)
+        {
+            card = cards[currentCardIndex];
             SetUIElementsData();
+            currentCardIndex++;
         }
     }
 
+    // called by the popup window button to end game
     public void EndGame()
     {
         Destroy(player);
@@ -180,13 +219,10 @@ public class FlashCards_E : MonoBehaviour
 
             else if (buttonText == card.answer)
             {
-                Instantiate(check, player.transform.position, Quaternion.identity); // add enabled VFX check
+                Instantiate(check, player.transform.position, Quaternion.identity); // add enabled VFX check (currently bugged if vsync not on)
 
                 ExperimentalGM.instance.IncrementPoints();
                 currentScore += 10;
-
-                answerCount++;
-                StartCoroutine(CheckAnswerCount());
 
                 // move avatar
                 avatarTargetPosition = new Vector2(player.transform.position.x + trackIncrements, tracks[0].transform.position.y + 0.3f);
@@ -221,16 +257,28 @@ public class FlashCards_E : MonoBehaviour
                 Instantiate(x, NPC2.transform.position, Quaternion.identity); // add enabled VFX check
             }
 
-            // request a new question
-            RequestCard();
+            answerCount++;
+            StartCoroutine(CheckAnswerCount());
+            answerCountText.text = answerCount.ToString() + " / " + maxAnswers.ToString();
 
-            
-            yield return new WaitForSeconds(0.5f);
-            // enable buttons
-            foreach (var button in buttons)
-                button.enabled = true;
+            if (answerCount < maxAnswers)
+            {
+                // request a new question
+                NextCard();
+
+                yield return new WaitForSeconds(0.5f);
+                foreach (var button in buttons)
+                    button.enabled = true;
+            }
+            else
+            {
+                if (whistle != null)
+                {
+                    yield return new WaitForSeconds(0.6f);
+                    AudioManager.instance.PlayClip(whistle);
+                }       
+            }
         }
-
     }
 
     // checks if user answered max amount of questions
@@ -238,17 +286,20 @@ public class FlashCards_E : MonoBehaviour
     {
         if (answerCount >= maxAnswers)
         {
+
+            
+
             // disable buttons
             foreach (var button in buttons)
                 button.enabled = false;
 
             // wait for seconds
-            yield return new WaitForSeconds(1.3f);
+            yield return new WaitForSeconds(2f);
 
             // show game over results
             popupWindow.SetActive(true);
             GameObject popup = popupWindow.transform.GetChild(0).gameObject;
-            popup.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Score: " + currentScore;
+            popup.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Score: " + currentScore + " / " + (maxAnswers*10);
         }
         yield return null;
     }

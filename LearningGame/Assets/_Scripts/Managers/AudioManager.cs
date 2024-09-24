@@ -18,6 +18,8 @@ public class AudioManager : MonoBehaviour
 
     public void PlayClip(AudioClip clip)
     {
+        ChangePitch(1);
+
         if (effectsSource != null)
             effectsSource.PlayOneShot(clip);
     }
@@ -39,6 +41,16 @@ public class AudioManager : MonoBehaviour
     public void ChangeMusic(AudioClip music)
     {
         musicSource.clip = music;
+    }
+
+    public void ChangeMusicVolume(float volume)
+    {
+        musicSource.volume = volume;
+    }
+
+    public void ChangeEffectsVolume(float volume)
+    {
+        effectsSource.volume = volume;
     }
 
 }

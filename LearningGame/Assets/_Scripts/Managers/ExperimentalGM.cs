@@ -41,12 +41,14 @@ public class ExperimentalGM : MonoBehaviour
     System.Random Random = new System.Random();
     public Card GetRandomCard()
     {
+        // For Flashcards
         if (currentMode == ExperimentalGM.GameMode.FlashCards)
         {
             int randomNum = Random.Next(0, cardDB.FlashCards.Length);
             return cardDB.FlashCards[randomNum];
         }
 
+        // For FIB
         if (currentMode == ExperimentalGM.GameMode.FIB)
         {
             int randomNum = Random.Next(0, cardDB.FIBCards.Length);
