@@ -22,6 +22,7 @@ public class WorldAvatar : MonoBehaviour
 
     private void Awake()
     {
+        gameObject.name = "Player";
         playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
         cosmeticDatabase = Resources.Load<CosmeticsDatabase>("CosmeticsDatabase");
     }

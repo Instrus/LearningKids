@@ -22,6 +22,12 @@ public class ExperimentalGM : MonoBehaviour
        currentMode = GameMode.None;
     }
 
+    private void Start()
+    {
+        // lock framerate to 60 fps
+        Application.targetFrameRate = 60;
+    }
+
     // GameManager will have to handle all games depending on Game mode.
     public enum GameMode { None, FlashCards, FIB, Matching }
 

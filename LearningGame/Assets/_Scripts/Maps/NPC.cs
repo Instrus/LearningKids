@@ -16,6 +16,7 @@ public class NPC : MonoBehaviour
     // Avatar will be enabled when games are enabled.
     private void OnEnable()
     {
+        gameObject.name = "NPC";
         cosmeticsDatabase = Resources.Load<CosmeticsDatabase>("CosmeticsDatabase");
         GetRandomCosmetics();
         

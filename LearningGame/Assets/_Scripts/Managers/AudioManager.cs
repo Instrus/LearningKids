@@ -5,6 +5,7 @@ public class AudioManager : MonoBehaviour
 {
     // Audio sources
     [SerializeField] private AudioSource musicSource, effectsSource;
+    PlayerData playerData;
 
     // singleton pattern
     public static AudioManager instance;
@@ -14,6 +15,13 @@ public class AudioManager : MonoBehaviour
             Destroy(this);
         else
             instance = this;
+    }
+
+    private void Start()
+    {
+        playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
+        effectsSource.volume = playerData.GetEffectsVolume();
+        musicSource.volume = playerData.GetMusicVolume();
     }
 
     public void PlayClip(AudioClip clip)
