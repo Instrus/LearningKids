@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9fe39da8d3f11e14695872e2dbe995b8
+guid: 61179d61d0b987745a0115877c2f335a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GB
+      name: Bronze
       rect:
         serializedVersion: 2
-        x: 28
-        y: 38
-        width: 316
-        height: 336
+        x: 417
+        y: 2314
+        width: 617
+        height: 668
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da215c9cf50e55a498865c76e3b46c15
-      internalID: -1094207211
+      spriteID: 89310b8c50ad45a409ba83eeb08d150c
+      internalID: 1030056574
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GS
+      name: Silver
       rect:
         serializedVersion: 2
-        x: 411
-        y: 35
-        width: 367
-        height: 333
+        x: 1387
+        y: 2312
+        width: 578
+        height: 633
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8663662443b551f47bcb6bf3c38ba58f
-      internalID: 731288835
+      spriteID: 0d0350169ccf2104383d571ee538b546
+      internalID: 416810384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GG
+      name: Gold
       rect:
         serializedVersion: 2
-        x: 833
-        y: 17
-        width: 331
-        height: 353
+        x: 2272
+        y: 2297
+        width: 559
+        height: 632
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 898f47c78f522754da669b3b637e3cd4
-      internalID: -1653744193
+      spriteID: 18d1d075e25731f4c96711808b5109c3
+      internalID: 1856674343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GD
+      name: Diamond
       rect:
         serializedVersion: 2
-        x: 1261
-        y: 44
-        width: 360
-        height: 326
+        x: 910
+        y: 1068
+        width: 563
+        height: 657
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,29 +187,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd166f5e9c9a88643b947cbd8d099021
-      internalID: -1971853771
+      spriteID: 8ab55255c9f91964ba071baef3d25c59
+      internalID: -1880521892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GGe
+      name: Gem
       rect:
         serializedVersion: 2
-        x: 1663
-        y: 45
-        width: 343
-        height: 328
+        x: 1904
+        y: 1086
+        width: 707
+        height: 661
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a84db574ba5f0894ba408885f65a9d0b
-      internalID: 1749437129
+      spriteID: f06ae3fb817c2ad499e94fd160168656
+      internalID: 303764936
       vertices: []
       indices: 
       edges: []
@@ -225,11 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GB: -1094207211
-      GD: -1971853771
-      GG: -1653744193
-      GGe: 1749437129
-      GS: 731288835
+      Bronze: 1030056574
+      Diamond: -1880521892
+      Gem: 303764936
+      Gold: 1856674343
+      Silver: 416810384
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
