@@ -26,5 +26,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:531782998713:ios:b0c469ab5de22e1a725968</string>
+	<key>DATABASE_URL</key>
+	<string>https://learning-kids-db-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>

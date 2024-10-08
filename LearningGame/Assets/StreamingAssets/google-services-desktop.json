@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "531782998713",
+    "firebase_url": "https://learning-kids-db-default-rtdb.firebaseio.com",
     "project_id": "learning-kids-db",
     "storage_bucket": "learning-kids-db.appspot.com"
   },
