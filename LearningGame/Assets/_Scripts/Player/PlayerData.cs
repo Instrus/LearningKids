@@ -25,6 +25,10 @@ public class PlayerData : MonoBehaviour
     // user settings
     [SerializeField] public int effectsVolume;
     [SerializeField] public int musicVolume; //getters and setters
+    
+    //saves achievements
+     public bool[] Check = new bool[15];
+  
 
     private void Awake() { 
         // ensures playerDM is always set
@@ -110,6 +114,10 @@ public class PlayerData : MonoBehaviour
 
     public int GetEffectsVolume() { return effectsVolume; }
     public int GetMusicVolume() { return musicVolume; }
+
+    //Achievements
+    public bool[] GetUA(){ return Check; }
+    public void SetUA(int idx){ Check[idx]=true; Save();}
 
     private void OnApplicationQuit()
     {
