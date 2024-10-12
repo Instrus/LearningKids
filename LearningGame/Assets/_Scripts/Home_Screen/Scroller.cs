@@ -5,8 +5,21 @@ using UnityEngine.UI;
 
 public class Scroller : MonoBehaviour
 {
-    [SerializeField] private RawImage _img;
-    [SerializeField] private float _x, _y;
+    private RawImage _img;
+    private float _x, _y;
+
+    private void Awake()
+    {
+        _x = 0.0025f;
+        _y = -0.005f;
+        _img = GetComponent<RawImage>();
+    }
+
+    private void Start()
+    {
+        ExperimentalGM.instance.gameStarted += DisableScroller;
+        ExperimentalGM.instance.gameFinished += EnableScoller;
+    }
 
     void Update()
     {
@@ -23,9 +36,5 @@ public class Scroller : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void Start()
-    {
-        ExperimentalGM.instance.gameStarted += DisableScroller;
-        ExperimentalGM.instance.gameFinished += EnableScoller;
-    }
+    
 }

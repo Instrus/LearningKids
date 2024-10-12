@@ -9,9 +9,9 @@ public class Avatar_E : MonoBehaviour
     // Set the Lists to be assosciated with those indexes
 
     // reference to image component
-    [SerializeField] public Image avatar;
-    [SerializeField] public Image hat;
-    [SerializeField] public Image shirt;
+    private Image avatar;
+    private Image hat;
+    private Image shirt;
 
     // avatar cosmetics indices
     private int avatarIndex;
@@ -29,6 +29,10 @@ public class Avatar_E : MonoBehaviour
 
     private void Awake()
     {
+        avatar = transform.GetChild(0).GetComponent<Image>();
+        hat = transform.GetChild(1).GetComponent<Image>();
+        shirt = transform.GetChild(2).GetComponent<Image>();
+
         playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
         cosmeticsDatabase = Resources.Load<CosmeticsDatabase>("CosmeticsDatabase");
     }
