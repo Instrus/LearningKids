@@ -44945,7 +44945,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Score
 
-    350 Points'
+    500 Points'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2831826ad50106041b151ebd89fc99c6, type: 2}
   m_sharedMaterial: {fileID: 7166119270533364433, guid: 2831826ad50106041b151ebd89fc99c6, type: 2}
