@@ -8,6 +8,7 @@ using Firebase.Extensions;
 using UnityEngine.Rendering;
 using System.Linq;
 using System;
+using Firebase;
 
 /*
     this code will
@@ -17,26 +18,31 @@ using System;
     4. Fetch User Profile Data
     5. Fetch Leader Board Data
     6. Display Leaderboard UI
-    7. Add UI events SIgn in, Signout, Close leaderboard
+    7. Add UI events sign in, sign out, Close leaderboard
     8. Make sure in Assets folder you mus th ave streaming asset foler if not you have to close and open
     project again. If streaming folder is still not there create new one and name it StreamingAssetsFolder and put the google-services.json file there.
     */
 
 public class DB_Connections : MonoBehaviour
 {
-    // find a way to use playerID in PlayerData (set on login, clear on logout)
 
     private DatabaseReference db;
 
     public GameObject usernamePanel, userProfilePanel, leaderboardPanel, leaderboardContent, userDataPrefab;
-    public TMP_Text profileUsernameTxt, profileUserScoreTxt, errorUsernameTxt;
+    public TMP_Text profileUsernameTxt, profileUserScoreTxt, errorText;
+    
+    // inputs
     public TMP_InputField usernameInput;
+    public TMP_InputField passwordInput;
 
+    // pages (navigation)
     public GameObject login_Page;
     public GameObject PIN_Screen;
 
     public string username = "";
     public int score;
+    public string password;
+
     public PlayerData playerData;
 
     public int totalUsers = 0;
@@ -44,79 +50,211 @@ public class DB_Connections : MonoBehaviour
     void Start() 
     {
         playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
-        FirebaseIntialize(); 
+        InitializeFirebase();
     }
-    
-    void FirebaseIntialize() { db = FirebaseDatabase.DefaultInstance.GetReference("/Leaderboard"); }
-    
-    public void Login() { FindUser(); }
 
-    public async void FindUser()
+    private void InitializeFirebase()
     {
-        int playerID = 1; // Start at 1 for the first user
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
+        {
+            Firebase.DependencyStatus dependencyStatus = task.Result;
+
+            if (dependencyStatus == Firebase.DependencyStatus.Available)
+            {
+                // Initialize the Firebase Database reference
+                db = FirebaseDatabase.DefaultInstance.GetReference("/Leaderboard");
+                Debug.Log("Firebase has been properly initialized.");
+            }
+            else
+            {
+                Debug.LogError("Could not resolve all Firebase dependencies:" + dependencyStatus);
+            }
+        });
+    }
+
+    public void Login() { 
+        if (string.IsNullOrEmpty(usernameInput.text) || string.IsNullOrEmpty(passwordInput.text))
+        {
+            Debug.LogWarning("Please enter a username and password.");
+            errorText.text = "Please enter a username and password.";
+            return;
+        }
+        StartFindUser(); 
+    }
+
+    public void StartFindUser()
+    {
+        StartCoroutine(FindUserCoroutine());
+    }
+
+    private IEnumerator FindUserCoroutine()
+    {
+        int playerID = 1; // start at 1 for the first user
         bool userFound = false;
 
-        try
+        //var task = db.OrderByChild("username").EqualTo(usernameInput.text).GetValueAsync();
+        var task = db.GetValueAsync();
+
+        // wait for the task to complete
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsFaulted)
         {
-            var task = db.OrderByChild("username").EqualTo(usernameInput.text).GetValueAsync();
-            DataSnapshot snapshot = await task;
+            Debug.LogError("Task Failed - FindUser: " + task.Exception);
+            yield break; // exit coroutine if there's an error
+        }
 
-            if (snapshot != null && snapshot.HasChildren)
+        if (task.IsCompletedSuccessfully)
+        {
+            print("task success");
+            DataSnapshot snapshot = task.Result;
+
+            if (snapshot != null && snapshot.HasChildren) // snapshot is randomly null or snapshot.HasChildren randomly fails
             {
-                
-
-                // Loop through each result in the snapshot
                 foreach (DataSnapshot childSnapshot in snapshot.Children)
                 {
                     string username = childSnapshot.Child("username").Value.ToString();
+                    Debug.Log("Checking " + username);
 
-                    // Check if the username matches
                     if (username == usernameInput.text)
                     {
                         int score = int.Parse(childSnapshot.Child("score").Value.ToString());
                         Debug.Log("User found: " + username + ", Score: " + score);
-                        // Set the player ID (index of the user in the leaderboard)
                         playerData.SetPlayerID(int.Parse(childSnapshot.Key));
                         userFound = true;
-                        break; // exit loop if the user is found
+                        break;
                     }
-
-                    playerID++; // Increment playerID for each record
+                    // increment playerID for each record
+                    playerID++;
                 }
 
-                if (!userFound)
+                if (userFound)
+                {
+                    playerData.SetUsername(usernameInput.text);
+                    StartCoroutine(CheckPasswordCoroutine());
+                }
+                else
                 {
                     Debug.Log("Username does not exist.");
-                    errorUsernameTxt.text = "Username does not exist!";
+                    errorText.text = "Username does not exist!";
                     playerData.SetPlayerID(-1);
+                    playerData.SetScore(0);
+                    playerData.SetUsername("");
                 }
             }
             else
             {
-                // No matching users found
-                errorUsernameTxt.text = "Username does not exist!";
+                // snapshot error
+                errorText.text = "Error: failed to fetch username.";
+                Debug.Log("Error: failed to fetch username.");
                 playerData.SetPlayerID(-1);
-                Debug.Log("Username does not exist.");
+                playerData.SetScore(0);
+                playerData.SetUsername("");
+
+                if (snapshot == null)
+                {
+                    Debug.LogWarning("Snapshot is null");
+                } else if (!snapshot.HasChildren)
+                {
+                    Debug.LogWarning("Snapshot has no children");
+                }
+                
             }
         }
-        catch (Exception ex)
+    }
+
+
+    private IEnumerator CheckPasswordCoroutine()
+    {
+        bool passwordCheck = false;
+
+        // fetch the data using usernameInput.text
+        var task = db.OrderByChild("username").EqualTo(usernameInput.text).GetValueAsync();
+
+        // wait until the task completes
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsFaulted)
         {
-            Debug.LogError("Task Failed - FindUser: " + ex.Message);
+            Debug.LogError("Task Failed - CheckPassword: " + task.Exception);
+            yield break; // exit coroutine if there's an error
         }
 
-        // go to pin if user was found
-        //if (userFound)
-        //{
-        //    GoPIN();
-        //}
+        if (task.IsCompleted)
+        {
+            DataSnapshot snapshot = task.Result;
 
-        //print("playerID: " + playerData.GetPlayerID());
-        StartCoroutine(FetchUserProfileData(playerData.GetPlayerID()));
+            if (snapshot != null && snapshot.HasChildren)
+            {
+                var enumerator = snapshot.Children.GetEnumerator();
+                if (enumerator.MoveNext()) // Move to the first element
+                {
+                    DataSnapshot firstChild = enumerator.Current;
+
+                    if (firstChild != null)
+                    {
+                        Debug.Log("Checking password");
+                        string password = firstChild.Child("password").Value.ToString();
+
+                        // check if the password matches
+                        if (password == passwordInput.text)
+                        {
+                            Debug.Log("Password entered correctly: " + password);
+                            passwordCheck = true;
+                        }
+                    }
+                }
+
+                if (passwordCheck)
+                {
+                    // if password is correct, fetch user data
+                    StartCoroutine(FetchUserProfileData(playerData.GetPlayerID()));
+                    // Go to PIN screen if user and pass were found
+                    // GoPIN(); 
+                }
+                else
+                {
+                    Debug.Log("Account not found.");
+                    errorText.text = "Account not found.";
+                    playerData.SetPlayerID(-1);
+                    playerData.SetScore(0);
+                    playerData.SetUsername("");
+                }
+            }
+            else
+            {
+                // snapshot error
+                errorText.text = "Error: failed to fetch password";
+                Debug.LogWarning("Error: failed to fetch password.");
+                playerData.SetPlayerID(-1);
+                playerData.SetScore(0);
+                playerData.SetUsername("");
+
+                if (snapshot == null)
+                {
+                    Debug.LogWarning("Snapshot is null");
+                }
+                else if (!snapshot.HasChildren)
+                {
+                    Debug.LogWarning("Snapshot has no children");
+                }
+            }
+        }
     }
+
 
     public void CreateAccount()
     {
         PushUserData();
+        if (string.IsNullOrEmpty(usernameInput.text) || string.IsNullOrEmpty(passwordInput.text))
+        {
+            errorText.text = "Please enter a username and password";
+            return;
+        }
+            
+        usernameInput.text = "";
+        passwordInput.text = "";
+        errorText.text = "Account created!";
     }
 
     public void GoPIN()
@@ -134,7 +272,7 @@ public class DB_Connections : MonoBehaviour
         // clear UI components
         profileUsernameTxt.text = "";
         profileUserScoreTxt.text = "";
-        errorUsernameTxt.text = "";
+        errorText.text = "";
         // player data
         username = "";
         score = 0;
@@ -167,6 +305,10 @@ public class DB_Connections : MonoBehaviour
                     userProfilePanel.SetActive(true);
                     usernamePanel.SetActive(false);
                 }
+
+                // reset login page UI components
+                passwordInput.text = "";
+                usernameInput.text = "";
             }
         }
     }
@@ -176,7 +318,7 @@ public class DB_Connections : MonoBehaviour
     IEnumerator FetchLeaderBoardData()
     {
 
-        var task = db.OrderByChild("score").LimitToLast(3).GetValueAsync();
+        var task = db.OrderByChild("score").LimitToLast(10).GetValueAsync();
         yield return new WaitUntil(() => task.IsCompleted);
 
         if (task.IsFaulted)
@@ -251,6 +393,7 @@ public class DB_Connections : MonoBehaviour
             // Push username and score
             await db.Child(newUserKey).Child("username").SetValueAsync(usernameInput.text);
             await db.Child(newUserKey).Child("score").SetValueAsync(0); // might need to get playerData score? to update
+            await db.Child(newUserKey).Child("password").SetValueAsync(passwordInput.text);
         }
         else
         {
@@ -260,6 +403,7 @@ public class DB_Connections : MonoBehaviour
             // Optionally, start with the first user if no data exists
             await db.Child("1").Child("username").SetValueAsync(usernameInput.text);
             await db.Child("1").Child("score").SetValueAsync(0); //default 0
+            await db.Child("1").Child("password").SetValueAsync(passwordInput.text);
 
             Debug.Log("First user added: " + usernameInput.text);
         }
