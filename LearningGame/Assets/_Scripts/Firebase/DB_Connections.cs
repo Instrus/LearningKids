@@ -210,7 +210,7 @@ public class DB_Connections : MonoBehaviour
                     // if password is correct, fetch user data
                     StartCoroutine(FetchUserProfileData(playerData.GetPlayerID()));
                     // Go to PIN screen if user and pass were found
-                    // GoPIN(); 
+                    //GoPIN(); 
                 }
                 else
                 {
@@ -245,15 +245,15 @@ public class DB_Connections : MonoBehaviour
 
     public void CreateAccount()
     {
-        PushUserData();
         if (string.IsNullOrEmpty(usernameInput.text) || string.IsNullOrEmpty(passwordInput.text))
         {
             errorText.text = "Please enter a username and password";
             return;
         }
-            
-        usernameInput.text = "";
-        passwordInput.text = "";
+
+        PushUserData();
+        //usernameInput.text = "";
+        //passwordInput.text = "";
         errorText.text = "Account created!";
     }
 
@@ -318,7 +318,11 @@ public class DB_Connections : MonoBehaviour
     IEnumerator FetchLeaderBoardData()
     {
 
-        var task = db.OrderByChild("score").LimitToLast(10).GetValueAsync();
+        GetTotalUsers();
+
+        // does not populate if limit > records
+        // later, if total users < max, use total users, else use max
+        var task = db.OrderByChild("score").LimitToLast(totalUsers).GetValueAsync();
         yield return new WaitUntil(() => task.IsCompleted);
 
         if (task.IsFaulted)
@@ -409,6 +413,20 @@ public class DB_Connections : MonoBehaviour
         }
     }
 
+    void GetTotalUsers()
+    {
+        //Get total users from firebase
+        db.ValueChanged += (object sender2, ValueChangedEventArgs e2) =>
+        {
+            if (e2.DatabaseError != null)
+            {
+                Debug.Log(e2.DatabaseError.Message);
+                return;
+            }
+            totalUsers = int.Parse(e2.Snapshot.ChildrenCount.ToString());
+            Debug.Log("total users in database:" + totalUsers);
+        };
+    }
 
 }
 
