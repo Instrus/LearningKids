@@ -99,31 +99,31 @@ public class Achievements: MonoBehaviour
         playerScore = playerData.GetScore();
         playerCurrency = playerData.GetCurrency();
 
-        if((Check[5] == false) && (playerScore >= 50)){
+        if((Check[5] == false) && (playerScore >= 250)){
                 B2();
         }
 
-        if((Check[6] == false) && (playerScore >= 150)){
+        if((Check[6] == false) && (playerScore >= 500)){
                 S2();
         }
 
-        if((Check[7] == false) && (playerScore >= 250)){
+        if((Check[7] == false) && (playerScore >= 750)){
                 Go2();
         }
 
-        if((Check[8] == false) && (playerScore >= 350)){
+        if((Check[8] == false) && (playerScore >= 1000)){
                 D2();
         }
 
-        if((Check[9] == false) && (playerScore >= 500)){
+        if((Check[9] == false) && (playerScore >= 1500)){
                 Ge2();
         }
     
-          if((Check[10] == false) && (playerCurrency >= 250)){
+          if((Check[10] == false) && (playerCurrency >= 100)){
                 B3();
         }
 
-        if((Check[11] == false) && (playerCurrency >= 350)){
+        if((Check[11] == false) && (playerCurrency >= 250)){
                 S3();
         }
 
@@ -131,11 +131,11 @@ public class Achievements: MonoBehaviour
                 Go3();
         }
 
-        if((Check[13] == false) && (playerCurrency >= 600)){
+        if((Check[13] == false) && (playerCurrency >= 750)){
                 D3();
         }
 
-        if((Check[14] == false) && (playerCurrency >= 700)){
+        if((Check[14] == false) && (playerCurrency >= 1000)){
                 Ge3();
         }  
 

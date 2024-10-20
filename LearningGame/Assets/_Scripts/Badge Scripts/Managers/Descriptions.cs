@@ -6,13 +6,14 @@ public class Descriptions : MonoBehaviour
 {
     public Achievements achievements;
       public TextMeshProUGUI[] Desc = new TextMeshProUGUI[15];
-
+      public TextMeshProUGUI[] Rew = new TextMeshProUGUI[15];
       public Button[] Toggle = new Button[15];
 
     void Start(){
         for(int i = 0; i<15; i++){
           achievements.Tasks[i].enabled =false;
           Desc[i].enabled=false;
+          Rew[i].enabled=false;
         }
     }
 
@@ -37,6 +38,7 @@ public class Descriptions : MonoBehaviour
        if(i==Index){
         achievements.Tasks[i].enabled =true;
           Desc[i].enabled=true;
+          Rew[i].enabled=true;
        }
       }
     }

@@ -10,6 +10,8 @@ public class FrameManip : MonoBehaviour
     public Sprite[] alt = new Sprite[5];
     public TextMeshProUGUI[] tt = new TextMeshProUGUI[5];
 
+    public TextMeshProUGUI Rank;
+
     public Achievements achievements;
     int bCount=0,sCount=0,goCount=0,dCount=0,geCount=0;
 
@@ -20,6 +22,7 @@ public class FrameManip : MonoBehaviour
              frames[i].enabled=false;
              tt[i].enabled = false;
             }
+            Rank.enabled=false;
     }
         public void onClick(){
             if(bCount!=3){
@@ -63,7 +66,8 @@ public class FrameManip : MonoBehaviour
                     frames[0].enabled=true; 
                    
                     tt[0].enabled=true;
-                    
+                    Rank.enabled=true;
+
                     title.sprite=alt[0];
         }
 
@@ -73,6 +77,7 @@ public class FrameManip : MonoBehaviour
                     
                     tt[0].enabled=false;
                     tt[1].enabled=true;
+                    Rank.enabled=true;
                     
                     title.sprite=alt[1];
         }
@@ -86,6 +91,7 @@ public class FrameManip : MonoBehaviour
                     tt[0].enabled=false;
                     tt[1].enabled=false;
                     tt[2].enabled=true;
+                    Rank.enabled=true;
 
                     title.sprite=alt[2];
 
@@ -103,6 +109,7 @@ public class FrameManip : MonoBehaviour
                     tt[1].enabled=false;
                     tt[2].enabled=false;
                     tt[3].enabled=true;
+                    Rank.enabled=true;
 
                     title.sprite=alt[3];
         }
@@ -120,6 +127,7 @@ public class FrameManip : MonoBehaviour
                     tt[2].enabled=false;
                     tt[3].enabled=false;
                     tt[4].enabled=true;
+                    Rank.enabled=true;
 
                     title.sprite=alt[4];
         }

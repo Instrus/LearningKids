@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 63aa2f90919ae3641b6e84ac0de450e0
+guid: 71707d086141b0042a01f8dd0007a9bf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IncTask
+      name: Inc Box
       rect:
         serializedVersion: 2
-        x: 591
-        y: 2679
-        width: 832
-        height: 509
+        x: 603
+        y: 2688
+        width: 800
+        height: 487
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2ef37de94973724b881cbfcc70fd7aa
-      internalID: 2110101444
+      spriteID: d56d4b2c4bf3832458930f3ca9a28107
+      internalID: 1666125990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CTask
+      name: silver title
       rect:
         serializedVersion: 2
-        x: 1780
-        y: 2683
-        width: 826
-        height: 492
+        x: 2030
+        y: 1900
+        width: 700
+        height: 225
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,104 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f8a9b6295e28a442a0188ed2f19de68
-      internalID: 488155724
+      spriteID: d5eb06480364ab944b1ae2aa2df677b7
+      internalID: -293290209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bronze Title
+      name: bronze title
       rect:
         serializedVersion: 2
-        x: 2020
-        y: 2191
-        width: 740
-        height: 237
+        x: 2030
+        y: 2200
+        width: 700
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5154afc99b74714c9fd2f89ad078038
+      internalID: 865664557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold title
+      rect:
+        serializedVersion: 2
+        x: 2028
+        y: 1630
+        width: 700
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 151cc7dea26e2244e88df86ea40a5fa7
+      internalID: 1624673867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: diamond title
+      rect:
+        serializedVersion: 2
+        x: 2028
+        y: 1348
+        width: 700
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0b62e93f170d4942bc58e8aac922573
+      internalID: 623337548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gem title
+      rect:
+        serializedVersion: 2
+        x: 2031
+        y: 1064
+        width: 700
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86cf89f0fa91c7e4f82a362db3265a57
+      internalID: -1921073889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cbox
+      rect:
+        serializedVersion: 2
+        x: 1793
+        y: 2688
+        width: 800
+        height: 487
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,92 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20f96a0767b1e064f88021154ca0d4f0
-      internalID: -836634093
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Silver Title
-      rect:
-        serializedVersion: 2
-        x: 2029
-        y: 1893
-        width: 717
-        height: 240
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e37380ee2278a2d47a2b87cabf52f24d
-      internalID: 101660172
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gold Title
-      rect:
-        serializedVersion: 2
-        x: 2035
-        y: 1625
-        width: 705
-        height: 237
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca57bbbc856d8eb479ed3403c3c93d44
-      internalID: 1537701019
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Diamond Title
-      rect:
-        serializedVersion: 2
-        x: 2042
-        y: 1329
-        width: 704
-        height: 249
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ebca2d317c281224991a972d34342c2a
-      internalID: -2014534105
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gem Title
-      rect:
-        serializedVersion: 2
-        x: 2042
-        y: 1054
-        width: 713
-        height: 246
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 155d16f6c4e753a44b77a2fcfd1540f9
-      internalID: -1640842038
+      spriteID: bb5d1f0050345824687d2f95d09e937c
+      internalID: -142421335
       vertices: []
       indices: 
       edges: []
@@ -267,13 +267,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bronze Title: -836634093
-      CTask: 488155724
-      Diamond Title: -2014534105
-      Gem Title: -1640842038
-      Gold Title: 1537701019
-      IncTask: 2110101444
-      Silver Title: 101660172
+      Inc Box: 1666125990
+      bronze title: 865664557
+      cbox: 2121273542
+      diamond title: 623337548
+      gem title: -1921073889
+      gold title: 1624673867
+      incbox: -1175594990
+      silver title: -293290209
+      updatedtextboxes_1: -559700687
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
