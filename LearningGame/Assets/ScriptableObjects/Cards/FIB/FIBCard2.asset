@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a45b466b81d4ed647997ae970b0141ef, type: 3}
   m_Name: FIBCard2
   m_EditorClassIdentifier: 
-  question: Please Enter 'blue'
-  answer: blue
+  contactInfoCard: 0
+  question: How Many Numbers Are In A Phone Number
+  answer: 9
+  answerIndex: 1
   answerSet: []
