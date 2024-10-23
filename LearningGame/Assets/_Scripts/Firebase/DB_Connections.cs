@@ -50,6 +50,7 @@ public class DB_Connections : MonoBehaviour
     void Start() 
     {
         playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
+        ExperimentalGM.instance.gameFinished += PushUserScore;
         InitializeFirebase();
     }
 
@@ -116,8 +117,9 @@ public class DB_Connections : MonoBehaviour
                     string username = childSnapshot.Child("username").Value.ToString();
                     Debug.Log("Checking " + username);
 
-                    if (username == usernameInput.text)
+                    if (username.ToLower() == usernameInput.text.ToLower())
                     {
+                        usernameInput.text = username;
                         int score = int.Parse(childSnapshot.Child("score").Value.ToString());
                         Debug.Log("User found: " + username + ", Score: " + score);
                         playerData.SetPlayerID(int.Parse(childSnapshot.Key));
@@ -250,8 +252,11 @@ public class DB_Connections : MonoBehaviour
             errorText.text = "Please enter a username and password";
             return;
         }
+        //check if username is already taken or not then that function will push user data
 
-        PushUserData();
+        //push data to database
+        StartCoroutine(NoDuplicates());
+        //PushUserData();
         //usernameInput.text = "";
         //passwordInput.text = "";
         errorText.text = "Account created!";
@@ -359,7 +364,7 @@ public class DB_Connections : MonoBehaviour
             obj.transform.SetParent(leaderboardContent.transform, false);  // false keeps the local scale and position intact
             obj.transform.localScale = Vector3.one;
 
-            //obj.GetComponent<UserDataUI>().userRankTxt.text="Rank"+rankCount;
+            obj.GetComponent<UserDataUI>().userRankTxt.text="Rank"+rankCount;
             obj.GetComponent<UserDataUI>().usernameTxt.text = "" + leaderboardData[i].username;
             obj.GetComponent<UserDataUI>().userScoreTxt.text = "" + leaderboardData[i].score;
 
@@ -380,10 +385,82 @@ public class DB_Connections : MonoBehaviour
         leaderboardPanel.SetActive(false);
         userProfilePanel.SetActive(true);
     }
+private IEnumerator NoDuplicates()
+    {
+        int playerID = 1; // start at 1 for the first user
+        bool userFound = false;
 
+        //var task = db.OrderByChild("username").EqualTo(usernameInput.text).GetValueAsync();
+        var task = db.GetValueAsync();
+
+        // wait for the task to complete
+        yield return new WaitUntil(() => task.IsCompleted);
+
+        if (task.IsFaulted)
+        {
+            Debug.LogError("Task Failed - FindUser: " + task.Exception);
+            yield break; // exit coroutine if there's an error
+        }
+
+        if (task.IsCompletedSuccessfully)
+        {
+            print("task success");
+            DataSnapshot snapshot = task.Result;
+
+            if (snapshot != null && snapshot.HasChildren) // snapshot is randomly null or snapshot.HasChildren randomly fails
+            {
+                foreach (DataSnapshot childSnapshot in snapshot.Children)
+                {
+                    string username = childSnapshot.Child("username").Value.ToString();
+                    Debug.Log("Checking " + username);
+
+                    if (username.ToLower() == usernameInput.text.ToLower())
+                    {
+                        usernameInput.text = username;
+                        int score = int.Parse(childSnapshot.Child("score").Value.ToString());
+                        Debug.Log("User found: " + username + ", Score: " + score);
+                        playerData.SetPlayerID(int.Parse(childSnapshot.Key));
+                        userFound = true;
+                        break;
+                    }
+                    // increment playerID for each record
+                    playerID++;
+                }
+
+                if (userFound)
+                {
+                    errorText.text = "Username is already Taken";
+                }
+                else
+                {
+                    Debug.Log("Username does not exist.");
+                    PushUserData();
+                }
+            }
+            else
+            {
+                // snapshot error
+                errorText.text = "Error: failed to fetch username.";
+                Debug.Log("Error: failed to fetch username.");
+                playerData.SetPlayerID(-1);
+                playerData.SetScore(0);
+                playerData.SetUsername("");
+
+                if (snapshot == null)
+                {
+                    Debug.LogWarning("Snapshot is null");
+                } else if (!snapshot.HasChildren)
+                {
+                    Debug.LogWarning("Snapshot has no children");
+                }
+                
+            }
+        }
+    }
     // call this to update values or create a new user
     public async void PushUserData()
     {
+        
         if (usernameInput.text == "")
             return;
 
@@ -413,6 +490,11 @@ public class DB_Connections : MonoBehaviour
         }
     }
 
+public async void PushUserScore(){
+    
+    await db.Child(playerData.GetPlayerID().ToString()).Child("score").SetValueAsync(playerData.GetScore()); 
+    Debug.Log("i am here");
+}
     void GetTotalUsers()
     {
         //Get total users from firebase
