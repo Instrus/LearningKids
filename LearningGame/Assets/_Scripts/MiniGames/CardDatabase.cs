@@ -44,6 +44,33 @@ public class CardDatabase : ScriptableObject // holds all Cards
 
     }
 
+    public Card RequestFIBCards(int index)
+    {
+        // set questions before returning for contact info card
+
+        playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
+
+        List<ContactInfo> contacts = playerData.GetContacts();
+
+        if (FIBCards[index].contactInfoCard == true && contacts.Count > 0)
+        {
+            System.Random rand = new System.Random();
+            int randomContact = rand.Next(0, contacts.Count);
+
+            FIBCards[index].question = "Whose phone numbers is this: " + contacts[randomContact].phoneNumber + "?";
+            FIBCards[index].answer = contacts[randomContact].name;
+            FIBCards[index].answerSet[2] = contacts[randomContact].name + "'s";
+            FIBCards[index].answer = contacts[randomContact].name + "'s";
+            FIBCards[index].answerIndex = 3;
+        }
+        else if (FIBCards[index].contactInfoCard == true && contacts.Count < 1)
+        {
+            return FIBCards[0]; // contact card cannot be the last one in the FlashCards list.
+        }
+
+        return FIBCards[index];
+    }
+
     // right now FlashCards just gets from the list through GM but need to have some check (for contacts) later
     // only return the random card if the check is on
 }

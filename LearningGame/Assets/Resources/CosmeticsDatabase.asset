@@ -17,6 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 74d9989254b9b1d41ac431f9285f5883, type: 2}
   - {fileID: 11400000, guid: 265c4eff2657eeb4289c0e03aea1c46b, type: 2}
   - {fileID: 11400000, guid: fffcc1d985ea9c047b649b1e5e955dd3, type: 2}
+  - {fileID: 11400000, guid: 8eda8a5316c227c439c8dfe1d04b7c13, type: 2}
   hatCometics:
   - {fileID: 11400000, guid: da1112addc801c54498f141b5b136904, type: 2}
   - {fileID: 11400000, guid: e1adac7882f789c4c98769387ca01623, type: 2}

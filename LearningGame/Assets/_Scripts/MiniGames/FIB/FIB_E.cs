@@ -4,11 +4,16 @@ using UnityEngine;
 using Unity.UI;
 using TMPro;
 using UnityEngine.UI;
+using Unity.Collections.LowLevel.Unsafe;
 
 public class FIB_E : MonoBehaviour
 {
     Card nextCard;
     [SerializeField] private GameObject thisPage; // reference to self (screen) to disable at end of game
+
+    public Card card;
+    public Card[] cards; // card pool to ensure each question is unique per game session
+    public int currentCardIndex = 0; // increment from first to last card
 
     // ref to UI elements within FIB
     [SerializeField] private TextMeshProUGUI questionText;
@@ -47,13 +52,16 @@ public class FIB_E : MonoBehaviour
     private void OnEnable()
     {
         // boxing ding sound effect
+        cards = new Card[playerHealth.maxHealth + npcHealth.maxHealth];
+        RequestCards(playerHealth.maxHealth + npcHealth.maxHealth ,ExperimentalGM.instance.cardDB.FIBCards.Length);
+        NextCard();
 
         map.SetActive(true);
         submitButton.enabled = true;
         currentScore = 0;
         ExperimentalGM.instance.SetGameMode(ExperimentalGM.GameMode.FIB);
         ExperimentalGM.instance.StartGame(); // event call
-        StartCoroutine(RequestCard(0f)); // request new card at start of game
+        //StartCoroutine(RequestCard(0f)); // request new card at start of game
 
         if (playerPrefab != null)
         {
@@ -106,22 +114,67 @@ public class FIB_E : MonoBehaviour
         ExperimentalGM.instance.GoHome(thisPage); // calls GM to close this page
     }
 
+
+    //----------------------------------------------------------------------------------------------------NEW START
+
+    // probably need a delay here somewhere
+
+    public void RequestCards(int size, int range) // call at onenable
+    {
+        System.Random rand = new System.Random();
+        HashSet<int> numbers = new HashSet<int>();
+
+        // get random but unique numbers to request cards with
+        while (numbers.Count < size)
+        {
+            int randomNumber = rand.Next(0, range);
+            numbers.Add(randomNumber); // HashSet ensures no duplicates
+        }
+
+        // populate card pool
+        int tempIndex = 0;
+        foreach (int number in numbers)
+        {
+            //cards[tempIndex++] = ExperimentalGM.instance.cardDB.FlashCards[number];
+            cards[tempIndex++] = ExperimentalGM.instance.cardDB.RequestFIBCards(number);
+        }
+    }
+
+    public void NextCard() // call at start and check answer
+    {
+        if (currentCardIndex < cards.Length)
+        {
+            card = cards[currentCardIndex];
+            SetUIElementsData();
+            currentCardIndex++;
+        }
+    }
+
+    // Sets the UI elements of FlashCards to the next cards questions/answer set
+    private void SetUIElementsData()
+    {
+        // set question text
+        questionText.text = card.question;
+    }
+
+    //----------------------------------------------------------------------------------------------------NEW END
+
     // - request from GM database
     // change to request cards like in FlashCards to ensure unique. Should probably request all but make sure all are unique
     // dont forget PII card
-    public IEnumerator RequestCard(float time)
-    {
-        yield return new WaitForSeconds(time);
+    //public IEnumerator RequestCard(float time) // going to be outdated when RequestCards in place
+    //{
+    //    yield return new WaitForSeconds(time);
 
-        nextCard = ExperimentalGM.instance.GetRandomCard(); // should rename GM's function
-        SetUIData();
-    }
+    //    nextCard = ExperimentalGM.instance.GetRandomCard(); // should rename GM's function
+    //    SetUIData();
+    //}
 
     // Sets UI elements to card question/answer
-    private void SetUIData()
-    {
-        questionText.text = nextCard.question;
-    }
+    //private void SetUIData() //outdated
+    //{
+    //    questionText.text = nextCard.question;
+    //}
 
     // Checks if user input satisfies the answer
     public void CheckAnswer()
@@ -137,7 +190,7 @@ public class FIB_E : MonoBehaviour
         {
             Debug.Log("Please enter text");
             return;
-        } else if ( string.Equals(userInput.text, nextCard.answer, System.StringComparison.OrdinalIgnoreCase) )
+        } else if ( string.Equals(userInput.text, card.answer, System.StringComparison.OrdinalIgnoreCase) )
         {
             StartCoroutine(FlashGreen());
             // increment score
@@ -155,7 +208,8 @@ public class FIB_E : MonoBehaviour
 
         // clear user input
         userInput.text = "";
-        StartCoroutine(RequestCard(1f));
+        //StartCoroutine(RequestCard(1f));
+        NextCard();
     }
 
     private IEnumerator DisableButton()
