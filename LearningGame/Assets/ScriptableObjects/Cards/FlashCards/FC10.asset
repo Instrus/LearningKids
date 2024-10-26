@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC10
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Are The First Three Numbers Of A Phone Number Called?
-  answer: The Area Code
-  answerIndex: 10
+  question: What are the first three numbers of a phone number called?
+  answer: Area Code
+  answerIndex: 3
   answerSet:
-  - The Zip Code
+  - Zip Code
   - The Da Vinci Code
-  - The Address
-  - The Area Code
+  - Address
+  - Area Code

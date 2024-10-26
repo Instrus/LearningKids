@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC34
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Are Some Examples Of Guardians
-  answer: Parents And Teachers
-  answerIndex: 34
+  question: What is an example of a guardian
+  answer: Parents
+  answerIndex: 0
   answerSet:
-  - Parents And Teachers
-  - Your Friend
-  - Your Dog
+  - Parents
+  - Your friend
+  - Your dog
   - Judge Judy

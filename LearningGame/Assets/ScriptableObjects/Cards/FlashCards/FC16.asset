@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC16
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Colors Do Paramedics Wear
-  answer: Red And  White
-  answerIndex: 16
+  question: What colors do paramedics wear
+  answer: Red and white
+  answerIndex: 2
   answerSet:
-  - All Yellow
-  - Black And Blue
-  - Red And White
-  - Red And Brown
+  - Yellow
+  - Black and blue
+  - Red and white
+  - Red and brown

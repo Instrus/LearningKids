@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC29
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Should You Do If You Or Someone Else Is Badly Hurt
-  answer: Call 911 And Yell For Help
-  answerIndex: 29
+  question: What should you do if you or someone else is badly hurt?
+  answer: Call 911 and yell for help
+  answerIndex: 1
   answerSet:
   - Scream
-  - Call 911 And Yell For Help
-  - Perform Surgery
-  - Run Away
+  - Call 911 and yell for help
+  - Perform surgery
+  - Run away

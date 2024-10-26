@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: FIBCard8
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: Is Your Teacher A Guardian?
-  answer: Yes
-  answerIndex: 7
+  question: Is your teacher a guardian?
+  answer: No
+  FIBAnswerPool:
+  - No
+  answerIndex: 0
   answerSet: []

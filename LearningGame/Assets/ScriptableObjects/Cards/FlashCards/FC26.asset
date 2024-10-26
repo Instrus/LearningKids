@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC26
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: How Do You Ask Someone For Their Name?
-  answer: What Is Your Name?
-  answerIndex: 26
+  question: How do you ask someone for their name?
+  answer: '"What is your name?"'
+  answerIndex: 3
   answerSet:
-  - Do I Know You?
-  - Say Nothing
-  - Tickle Their Feet
-  - What Is Your Name?
+  - Do I know you?
+  - Say nothing
+  - Tickle their feet
+  - '"What Is your name?"'

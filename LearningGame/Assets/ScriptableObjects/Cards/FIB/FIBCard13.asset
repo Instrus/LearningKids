@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: FIBCard13
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: If You Get Lost, What Should You Do?
+  question: If you get lost, what should you do?
   answer: Ask For Help
-  answerIndex: 13
+  FIBAnswerPool:
+  - Find help
+  - Ask for help
+  - Call for help
+  answerIndex: 0
   answerSet: []

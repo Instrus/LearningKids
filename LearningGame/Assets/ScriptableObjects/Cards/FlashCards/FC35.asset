@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC35
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: Who Works To Protect You?
+  question: Who works to protect you?
   answer: Police, Firefighters, Paramedics
-  answerIndex: 35
+  answerIndex: 2
   answerSet:
-  - Your Friend
-  - A Store Clerk
+  - Your friend
+  - A store clerk
   - Police, Firefighters, Paramedics
-  - A Stranger
+  - A stranger

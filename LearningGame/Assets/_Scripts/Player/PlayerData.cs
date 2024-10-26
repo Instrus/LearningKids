@@ -123,10 +123,10 @@ public class PlayerData : MonoBehaviour
     {
         // REMOVE WHEN FINALIZED
 
-        // ensures no duplicate IDs are saved
-        unlockedAvatarIDs.Clear();
-        unlockedClothesIDs.Clear();
-        unlockedHatsIDs.Clear();
+        //// ensures no duplicate IDs are saved
+        //unlockedAvatarIDs.Clear();
+        //unlockedClothesIDs.Clear();
+        //unlockedHatsIDs.Clear();
         playerDM.SavePlayerDataToFile();
     }
 

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC32
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: Why Should You Not Approach A Wild Animal
-  answer: They Can Be Dangerous And May Have Diseases
-  answerIndex: 32
+  question: Why should you not approach a wild animal
+  answer: They can be dangerous and may have diseases
+  answerIndex: 1
   answerSet:
-  - They Are Evil
-  - They Can Be Dangerous And May Have Diseases
-  - They Are Strangers
-  - They Have Fur
+  - They are evil
+  - They can be dangerous and may have diseases
+  - They are strangers
+  - They have fur

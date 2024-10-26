@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: FIBCard10
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: Is Your Pet A Guardian?
+  question: Is your pet a guardian?
   answer: No
-  answerIndex: 9
+  FIBAnswerPool:
+  - No
+  answerIndex: 0
   answerSet: []

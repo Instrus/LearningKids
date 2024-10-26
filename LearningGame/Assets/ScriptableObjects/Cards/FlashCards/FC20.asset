@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC20
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: 'When You See Police Cars Coming Towards Your Emergency, You Should:'
-  answer: Wave Them Down
-  answerIndex: 20
+  question: 'When you see police cars coming towards your emergency, you should:'
+  answer: Wave them down
+  answerIndex: 1
   answerSet:
-  - Ignore Them
-  - Wave Them Down
-  - Do A Backflip
-  - Do A Spin
+  - Ignore them
+  - Wave them down
+  - Do a backflip
+  - Do a spin

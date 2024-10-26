@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: FIBCard6
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Is A Guadian?
+  question: What is a guadian?
   answer: Caregiver
-  answerIndex: 5
+  FIBAnswerPool:
+  - Caregiver
+  - Caregivers
+  answerIndex: 0
   answerSet: []

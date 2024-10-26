@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: FIBCard15
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: 'You Should Call 911 During An:'
+  question: 'You should call 911 during an:'
   answer: Emergency
-  answerIndex: 15
+  FIBAnswerPool:
+  - Emergency
+  - Emergencies
+  answerIndex: 0
   answerSet: []

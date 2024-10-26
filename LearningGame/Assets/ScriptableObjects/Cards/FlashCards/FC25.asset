@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC25
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Is A Guardian
-  answer: A Caregiver
-  answerIndex: 25
+  question: What is a guardian
+  answer: A caregiver
+  answerIndex: 2
   answerSet:
-  - Your Lunch Lady
-  - Your Dog
-  - A Caregiver
+  - Your lunch lady
+  - Your dog
+  - A caregiver
   - Pac Man

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: FIBCard1
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: Please Enter The Emergency Phone Number
+  question: Please enter the emergency phone number
   answer: 911
+  FIBAnswerPool:
+  - 911
   answerIndex: 0
   answerSet: []

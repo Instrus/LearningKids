@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: FC24
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Kind Of Vehicle Do Paramedics Drive?
+  question: What kind of vehicle do paramedics drive?
   answer: An Ambulance
-  answerIndex: 24
+  answerIndex: 1
   answerSet:
   - A Police Car
   - An Ambulance

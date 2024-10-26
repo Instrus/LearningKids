@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: FC4
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: Who Helps WIth Serious Sickness Or Injuries
+  question: Who helps wIth serious injuries
   answer: Paramedics
-  answerIndex: 4
+  answerIndex: 3
   answerSet:
   - Firefighters
   - Teachers

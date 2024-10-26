@@ -210,9 +210,9 @@ public class DB_Connections : MonoBehaviour
                 if (passwordCheck)
                 {
                     // if password is correct, fetch user data
-                    StartCoroutine(FetchUserProfileData(playerData.GetPlayerID()));
+                    //StartCoroutine(FetchUserProfileData(playerData.GetPlayerID()));
                     // Go to PIN screen if user and pass were found
-                    //GoPIN(); 
+                    GoPIN(); 
                 }
                 else
                 {

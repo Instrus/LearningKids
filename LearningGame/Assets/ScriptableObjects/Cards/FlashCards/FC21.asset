@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC21
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: How Should You Introduce Yourself
-  answer: Say Hello And Tell Them Your Name
-  answerIndex: 21
+  question: How should you introduce yourself
+  answer: Say hello and tell them your name
+  answerIndex: 2
   answerSet:
-  - Say Nothing
-  - Just Wave
-  - Say Hello And Tell Them Your Name
-  - Do A Backflip
+  - Say nothing
+  - Just wave
+  - Say hello and tell them your name
+  - Do a backflip

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC27
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: If There Is A Fire Where You Are At. What Should You Do?
-  answer: What Is Your Name?
-  answerIndex: 27
+  question: If there is a fire where you are at, what should you do?
+  answer: Call 911 and try to get out of there
+  answerIndex: 1
   answerSet:
-  - Call 911 And Try To Get Out Of There
-  - Look For Where the Fire Is Coming From
-  - Hide In A Room
-  - Try To Put It Out
+  - Call 911 and try to get out of there
+  - Look for where the fire is coming from
+  - Hide in a room
+  - Try to put it out

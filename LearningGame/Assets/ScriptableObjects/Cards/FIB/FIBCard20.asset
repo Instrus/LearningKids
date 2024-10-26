@@ -13,7 +13,16 @@ MonoBehaviour:
   m_Name: FIBCard20
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Do You Need To Know In Order To Get Home
-  answer: Address
-  answerIndex: 20
+  question: What do you need to know in order to get home
+  answer: Home Address
+  FIBAnswerPool:
+  - Address
+  - Home address
+  - guardian phone number
+  - guardians phone number
+  - My address
+  - My home address
+  - My guardian phone number
+  - My guardians phone number
+  answerIndex: 0
   answerSet: []

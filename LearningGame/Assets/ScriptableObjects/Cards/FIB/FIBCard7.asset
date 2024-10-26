@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: FIBCard7
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: Is Your Parent A Guardian?
+  question: Is your parent a guardian?
   answer: Yes
-  answerIndex: 6
+  FIBAnswerPool:
+  - yes
+  answerIndex: 0
   answerSet: []

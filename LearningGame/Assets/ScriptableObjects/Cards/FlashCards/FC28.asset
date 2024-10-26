@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC28
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Should You Do If There Is A Stranger In Your Home?
-  answer: Call 911 And Hide
-  answerIndex: 28
+  question: What should you do if there is a stranger in your home?
+  answer: Call 911 and hide
+  answerIndex: 3
   answerSet:
-  - Yell At Them
-  - Run Away
-  - Set Up Traps For Them
-  - Call 911 And Hide
+  - Yell at them
+  - Run away
+  - Set up traps for them
+  - Call 911 and hide

@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: FIBCard2
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: How Many Numbers Are In A Phone Number
-  answer: 9
-  answerIndex: 1
+  question: How many numbers are in a phone number
+  answer: 10
+  FIBAnswerPool:
+  - 10
+  - Ten
+  answerIndex: 0
   answerSet: []

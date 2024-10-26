@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: FIBCard18
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Should You Say When A Stranger Offers You Something?
+  question: What should you say when a stranger offers you something?
   answer: No
-  answerIndex: 18
+  FIBAnswerPool:
+  - No
+  - Say no
+  - No thanks
+  - No thank you
+  answerIndex: 0
   answerSet: []

@@ -10,6 +10,7 @@ public class Card : ScriptableObject
     public bool contactInfoCard;
     public string question;
     public string answer;
+    [SerializeField] public string[] FIBAnswerPool; // only applied to FIB
     public int answerIndex;
     [SerializeField] public string[] answerSet; // only applies to FlashCrds, not FIB
 

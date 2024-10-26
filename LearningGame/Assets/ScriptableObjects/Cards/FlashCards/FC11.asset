@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC11
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Information Should You Provide During An Emergency
-  answer: Your Name And Parent's Phone Number
-  answerIndex: 11
+  question: What information should you provide during an emergency
+  answer: Your name and parent's phone number
+  answerIndex: 2
   answerSet:
   - Nothing
-  - Your Teacher's Name
-  - Your Name And Parent's Phone Number
-  - Ask For Candy
+  - Your teacher's name
+  - Your name and parent's phone number
+  - Ask for candy

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC13
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: If One Of Your Parents Is Hurt, What Should You Do?
+  question: If one of your parents is hurt, what should you do?
   answer: Call 911
-  answerIndex: 13
+  answerIndex: 3
   answerSet:
-  - Run Outside
-  - Call A Friend
-  - Do Nothing
+  - Run outside
+  - Call a friend
+  - Do nothing
   - Call 911

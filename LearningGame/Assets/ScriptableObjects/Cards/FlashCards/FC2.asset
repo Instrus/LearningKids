@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FC2
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Number Should You Call During Emergencies?
+  question: What number should you call during emergencies?
   answer: 911
   answerIndex: 2
   answerSet:

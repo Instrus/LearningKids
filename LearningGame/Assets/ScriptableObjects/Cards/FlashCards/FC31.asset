@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC31
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Should You Do If You Find A Gun In The Street
+  question: What should you do if you find a gun in the street
   answer: Call 911
-  answerIndex: 31
+  answerIndex: 2
   answerSet:
   - Call 211
-  - Tell Your Friend
+  - Tell your friend
   - Call 911
-  - Just Dance
+  - Just dance

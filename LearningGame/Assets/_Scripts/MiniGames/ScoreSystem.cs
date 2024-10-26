@@ -15,15 +15,21 @@ public class ScoreSystem : MonoBehaviour
 
     void Awake()
     {
+        
+
+        
+
+    }
+
+    private void Start()
+    {
         playerData = GameObject.Find("PlayerData").GetComponent<PlayerData>();
         // Gets TextMeshPro component
         pointsText = GetComponent<TextMeshProUGUI>();
-
         // subscribes at start of runtime. There will only be on score system so just call game managers events when needed.
         ExperimentalGM.instance.gameStarted += ResetPoints;
         ExperimentalGM.instance.scoreIncremented += IncrementScore;
         ExperimentalGM.instance.gameFinished += SendPoints;
-
     }
     // maybe convert OnEnable/Disable subscriptions later
 

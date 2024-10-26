@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: FIBCard17
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Colors Are A Police Car
+  question: What colors are a Police Car
   answer: White And Blue
-  answerIndex: 17
+  FIBAnswerPool:
+  - White
+  - Blue
+  - White and blue
+  - Black
+  - White and black
+  answerIndex: 0
   answerSet: []

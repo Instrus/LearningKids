@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC17
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Should You Say When Asking For Help
-  answer: What The Emerhency Is And Where It Is Happening
-  answerIndex: 17
+  question: What should you say when asking for help
+  answer: What the emergency is and where it is happening
+  answerIndex: 0
   answerSet:
-  - What The Emergency Is And Where It Is Happening
-  - Say Nothing
-  - Ask The Person How They Are
-  - Say "I Don't Know"
+  - What the emergency is and where it is happening
+  - Say nothing
+  - Ask the person how they are
+  - Say "I don't know"

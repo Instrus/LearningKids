@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC14
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: If There's No Phone At Home In An Emergency, What Should You Do?
-  answer: Ask A Neighbor For Help
-  answerIndex: 14
+  question: If there's no phone at home, in an emergency, what should you do?
+  answer: Ask a neighbor for help
+  answerIndex: 3
   answerSet:
-  - Go To School
+  - Go to school
   - Ignore It
-  - Ask A Neighbor For Help
-  - Wait Until Parents Are Back Home
+  - Ask a neighbor for help
+  - Wait until parents are back home

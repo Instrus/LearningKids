@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC8
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Colors Do Police Wear?
+  question: What colors do police wear?
   answer: Black And Blue
-  answerIndex: 8
+  answerIndex: 1
   answerSet:
-  - Black And Yellow
-  - Black And Blue
-  - Red And Green
-  - Purple And Pink
+  - Black and yellow
+  - Black and blue
+  - Red and green
+  - Purple and pink

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC12
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Should You Do When A Stranger Offers You Something
-  answer: Say No And Look For A Trusted Adult
-  answerIndex: 12
+  question: What should you do when a stranger offers you something
+  answer: Say no and look for a trusted adult
+  answerIndex: 0
   answerSet:
-  - Say No And Look For A Trusted Adult
+  - Say no and look for a trusted adult
   - Take it
-  - Do Nothing
+  - Do nothing
   - Counteroffer

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: FIBCard16
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Color Is A FireTruck
+  question: What color is a Firetruck
   answer: Red
-  answerIndex: 16
+  FIBAnswerPool:
+  - Red
+  answerIndex: 0
   answerSet: []

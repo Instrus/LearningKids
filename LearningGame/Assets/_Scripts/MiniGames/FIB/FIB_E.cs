@@ -51,10 +51,12 @@ public class FIB_E : MonoBehaviour
 
     private void OnEnable()
     {
+        currentCardIndex = 0;
+
         // boxing ding sound effect
         cards = new Card[playerHealth.maxHealth + npcHealth.maxHealth];
         RequestCards(playerHealth.maxHealth + npcHealth.maxHealth ,ExperimentalGM.instance.cardDB.FIBCards.Length);
-        NextCard();
+        StartCoroutine( NextCard(0f) );
 
         map.SetActive(true);
         submitButton.enabled = true;
@@ -114,11 +116,6 @@ public class FIB_E : MonoBehaviour
         ExperimentalGM.instance.GoHome(thisPage); // calls GM to close this page
     }
 
-
-    //----------------------------------------------------------------------------------------------------NEW START
-
-    // probably need a delay here somewhere
-
     public void RequestCards(int size, int range) // call at onenable
     {
         System.Random rand = new System.Random();
@@ -140,13 +137,15 @@ public class FIB_E : MonoBehaviour
         }
     }
 
-    public void NextCard() // call at start and check answer
+    public IEnumerator NextCard(float time) // call at start and check answer
     {
+        yield return new WaitForSeconds(time);
+
         if (currentCardIndex < cards.Length)
         {
             card = cards[currentCardIndex];
-            SetUIElementsData();
             currentCardIndex++;
+            SetUIElementsData();
         }
     }
 
@@ -156,25 +155,6 @@ public class FIB_E : MonoBehaviour
         // set question text
         questionText.text = card.question;
     }
-
-    //----------------------------------------------------------------------------------------------------NEW END
-
-    // - request from GM database
-    // change to request cards like in FlashCards to ensure unique. Should probably request all but make sure all are unique
-    // dont forget PII card
-    //public IEnumerator RequestCard(float time) // going to be outdated when RequestCards in place
-    //{
-    //    yield return new WaitForSeconds(time);
-
-    //    nextCard = ExperimentalGM.instance.GetRandomCard(); // should rename GM's function
-    //    SetUIData();
-    //}
-
-    // Sets UI elements to card question/answer
-    //private void SetUIData() //outdated
-    //{
-    //    questionText.text = nextCard.question;
-    //}
 
     // Checks if user input satisfies the answer
     public void CheckAnswer()
@@ -186,30 +166,49 @@ public class FIB_E : MonoBehaviour
 
         // have a pool of answers instead. search through them all on check
 
+        // null answer case
         if (userInput.text == "")
         {
             Debug.Log("Please enter text");
             return;
-        } else if ( string.Equals(userInput.text, card.answer, System.StringComparison.OrdinalIgnoreCase) )
+        }
+
+        if (CheckAnswerPool())
         {
             StartCoroutine(FlashGreen());
             // increment score
             ExperimentalGM.instance.IncrementPoints();
             currentScore += 10;
-            // damage NPC if wrong
+            // damage NPC if answered correctly
             npcHealth.TakeDamage();
         }
-        else {
+        else
+        {
             Debug.Log("answer is false");
             StartCoroutine(FlashRed());
-            // damage player if wring
+            // damage player if answered incorrectly
             playerHealth.TakeDamage();
         }
 
         // clear user input
         userInput.text = "";
         //StartCoroutine(RequestCard(1f));
-        NextCard();
+        StartCoroutine( NextCard(1f) );
+    }
+
+    private bool CheckAnswerPool()
+    {
+        // check each answer in FIB pool
+        foreach(var answer in card.FIBAnswerPool)
+        {
+            // if answer found
+            if (string.Equals(userInput.text, answer, System.StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private IEnumerator DisableButton()

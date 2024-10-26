@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC33
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Personal Information Should You Know For Emergencies
-  answer: Your Guardian's Names, Phone Numbers, And Addreses
-  answerIndex: 33
+  question: What personal information should you know for emergencies
+  answer: Your guardian's names, phone numbers, and addreses
+  answerIndex: 1
   answerSet:
-  - Spaghetti Recipe
-  - Your Guardian's Names, Phone Numbers, And Addresses
-  - Just Your Name
-  - How Old You Are
+  - Spaghetti recipe
+  - Your guardian's names, phone numbers, and addreses
+  - Just your name
+  - How old you are

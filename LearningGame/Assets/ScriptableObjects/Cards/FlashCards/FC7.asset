@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC7
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: If You Don't Have A Phone, Who Should You Ask For Help In An Emergency
+  question: If you don't have a phone, who should you ask for help in an emergency
   answer: The Nearest Adult
-  answerIndex: 7
+  answerIndex: 2
   answerSet:
-  - Your Friend
-  - A Dog
-  - The Nearest Adult
+  - Your friend
+  - A dog
+  - The nearest adult
   - Turtle

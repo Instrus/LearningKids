@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: FIBCard4
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: Who Comes If There Is A Fire
+  question: Who comes if there is a fire
   answer: Firefighters
-  answerIndex: 3
+  FIBAnswerPool:
+  - Firefighter
+  - Firefighters
+  - Fire Department
+  - Firemen
+  - fire men
+  - fire fighter
+  - fire fighters
+  answerIndex: 0
   answerSet: []

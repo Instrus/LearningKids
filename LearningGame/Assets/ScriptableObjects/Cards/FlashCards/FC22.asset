@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC22
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Should You Do If You Need To Remember Important Information
-  answer: Write It Down
-  answerIndex: 22
+  question: What should you do if you need to remember important information
+  answer: Write it down
+  answerIndex: 3
   answerSet:
-  - Memorize It Mentally
+  - Memorize It mentally
   - Forget it
-  - Tell Your Friend To Remember
-  - Write It Down
+  - Tell Your friend to remember
+  - Write It down

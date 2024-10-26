@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: FIBCard3
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: Who Comes If You Are Hurt
+  question: Who comes if you are hurt
   answer: Paramedics
-  answerIndex: 2
+  FIBAnswerPool:
+  - Paramedic
+  - Paramedics
+  - Medic
+  - Medics
+  - Ambulance
+  answerIndex: 0
   answerSet: []

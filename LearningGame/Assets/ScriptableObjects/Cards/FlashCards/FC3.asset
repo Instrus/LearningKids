@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: FC3
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: Who Stops Fires?
-  answer: The Fire Department
-  answerIndex: 3
+  question: Who stops fires?
+  answer: Fire Department
+  answerIndex: 1
   answerSet:
-  - The Doctor
-  - The Fire Department
-  - Your Guardian
-  - The Ambulance
+  - The doctor
+  - Fire department
+  - Your guardian
+  - The ambulance

@@ -15,7 +15,7 @@ MonoBehaviour:
   contactInfoCard: 0
   question: What Color Is A Firetruck
   answer: Red
-  answerIndex: 6
+  answerIndex: 1
   answerSet:
   - Green
   - Red

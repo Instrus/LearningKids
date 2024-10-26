@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: FC1
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: How Many Numbers In A Phone Number?
-  answer: Nine
-  answerIndex: 1
+  question: How many numbers are in a phone number?
+  answer: Ten
+  answerIndex: 3
   answerSet:
   - Seven
   - Eight

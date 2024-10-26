@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: FIBCard14
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Are The First Three Numbers Of  A Phone Numbee
-  answer: The Area Code
-  answerIndex: 14
+  question: What are the first three numbers of  a phone number
+  answer: Area Code
+  FIBAnswerPool:
+  - Area
+  - Area code
+  answerIndex: 0
   answerSet: []
