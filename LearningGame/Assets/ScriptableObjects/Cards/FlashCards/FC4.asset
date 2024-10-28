@@ -15,7 +15,8 @@ MonoBehaviour:
   contactInfoCard: 0
   question: Who helps wIth serious injuries
   answer: Paramedics
-  answerIndex: 3
+  FIBAnswerPool: []
+  answerIndex: 2
   answerSet:
   - Firefighters
   - Teachers

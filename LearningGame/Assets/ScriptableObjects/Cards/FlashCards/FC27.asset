@@ -15,7 +15,8 @@ MonoBehaviour:
   contactInfoCard: 0
   question: If there is a fire where you are at, what should you do?
   answer: Call 911 and try to get out of there
-  answerIndex: 1
+  FIBAnswerPool: []
+  answerIndex: 0
   answerSet:
   - Call 911 and try to get out of there
   - Look for where the fire is coming from

@@ -15,7 +15,8 @@ MonoBehaviour:
   contactInfoCard: 1
   question: 'Whose phone numbers is this: 123-123-1234?'
   answer: Jake Schmidt's
-  answerIndex: 3
+  FIBAnswerPool: []
+  answerIndex: 2
   answerSet:
   - McDonald's
   - My toy's

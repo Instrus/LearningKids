@@ -15,7 +15,8 @@ MonoBehaviour:
   contactInfoCard: 0
   question: If there's no phone at home, in an emergency, what should you do?
   answer: Ask a neighbor for help
-  answerIndex: 3
+  FIBAnswerPool: []
+  answerIndex: 2
   answerSet:
   - Go to school
   - Ignore It
