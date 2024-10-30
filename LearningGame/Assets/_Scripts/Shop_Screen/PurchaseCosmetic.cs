@@ -40,6 +40,9 @@ public class PurchaseCosmetic : MonoBehaviour
         
         if (verification)
         {
+            // analytics
+            playerData.AddCreditsSpent(shopCardData.price);
+
             AddCosmeticToPlayer();
             if (purchaseClip != null)
                 AudioManager.instance.PlayClip(purchaseClip);

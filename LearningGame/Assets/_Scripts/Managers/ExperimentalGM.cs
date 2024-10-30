@@ -10,6 +10,8 @@ public class ExperimentalGM : MonoBehaviour
     [SerializeField] public CardDatabase cardDB; // database for all available cards
     [SerializeField] public GameObject scoreSystem; // at start of game: enable score system
 
+    private PlayerData playerData; // referemce for analytics
+
     // singleton pattern
     public static ExperimentalGM instance { get; private set; }
     private void Awake()
@@ -26,6 +28,13 @@ public class ExperimentalGM : MonoBehaviour
     {
         // lock framerate to 60 fps
         Application.targetFrameRate = 60;
+
+        // fetch playerdata for analytics
+        playerData = FindObjectOfType<PlayerData>();
+        if (playerData == null)
+        {
+            Debug.LogError("PlayerData not found in scene");
+        }
     }
 
     // GameManager will have to handle all games depending on Game mode.
@@ -35,7 +44,7 @@ public class ExperimentalGM : MonoBehaviour
     public event Action gameStarted, gameFinished, scoreIncremented;
 
     public void SetGameMode(GameMode mode) { currentMode = mode; }
-    public void StartGame() { EnableScore(); gameStarted?.Invoke(); } // Score enabled at start of any minigame
+    public void StartGame() { playerData.IncrementGamesPlayed(); EnableScore(); gameStarted?.Invoke(); } // Score enabled at start of any minigame
     public void EndGame() { gameFinished?.Invoke(); DisableScore(); ClearState(); } // Score disabled and state cleared at end
     public void IncrementPoints() { scoreIncremented?.Invoke(); } // calls event when user answers a question correctly
 

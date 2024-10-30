@@ -25,11 +25,16 @@ public class PlayerData : MonoBehaviour
     // user settings
     [SerializeField] public int effectsVolume;
     [SerializeField] public int musicVolume; //getters and setters
+
+    // user stats
+    [SerializeField] private int totalAnswers = 10;
+    [SerializeField] private int rightAnswers = 5;
+    [SerializeField] private int gamesPlayed = 1;
+    [SerializeField] private int creditsSpent = 200;
     
     //saves achievements
      public bool[] Check = new bool[15];
   
-
     private void Awake() { 
         // ensures playerDM is always set
         playerDM = GameObject.Find("PlayerDataManager").GetComponent<PlayerDataManager>();
@@ -114,6 +119,17 @@ public class PlayerData : MonoBehaviour
 
     public int GetEffectsVolume() { return effectsVolume; }
     public int GetMusicVolume() { return musicVolume; }
+
+    // user stats
+    public int GetTotalAnswers() { return totalAnswers; }
+    public void IncrementTotalAnswers() { totalAnswers++; Save(); }
+    public int GetRightAnswers() { return rightAnswers; }
+    public void IncrementRightAnswers() { rightAnswers++; Save(); }
+    public int GetGamesPlayed() { return gamesPlayed; }
+    public void IncrementGamesPlayed() { gamesPlayed++; Save(); }
+    public int GetCreditsSpent() { return creditsSpent; }
+    public void SetCreditsSpent(int credits) { this.creditsSpent = credits; Save(); }
+    public void AddCreditsSpent(int credits) { SetCreditsSpent(GetCreditsSpent() + credits); }
 
     //Achievements
     public bool[] GetUA(){ return Check; }

@@ -41,6 +41,7 @@ public class ScoreSystem : MonoBehaviour
 
     void IncrementScore()
     {
+        playerData.IncrementRightAnswers();
         StartCoroutine( DisplayPoints() );
     }
 

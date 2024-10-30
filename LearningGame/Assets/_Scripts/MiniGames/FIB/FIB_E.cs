@@ -49,8 +49,17 @@ public class FIB_E : MonoBehaviour
     TextMeshProUGUI header;
     TextMeshProUGUI desc;
 
+    private PlayerData playerData;
+
     private void OnEnable()
     {
+        // fetch playerdata for analytics
+        playerData = FindObjectOfType<PlayerData>();
+        if (playerData == null)
+        {
+            Debug.LogError("PlayerData not found in scene");
+        }
+
         currentCardIndex = 0;
 
         // boxing ding sound effect
@@ -159,6 +168,7 @@ public class FIB_E : MonoBehaviour
     // Checks if user input satisfies the answer
     public void CheckAnswer()
     {
+        playerData.IncrementTotalAnswers();
 
         StartCoroutine( DisableButton() );
 

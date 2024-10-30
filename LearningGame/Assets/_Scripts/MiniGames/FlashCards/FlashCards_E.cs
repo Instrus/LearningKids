@@ -67,8 +67,16 @@ public class FlashCards_E : MonoBehaviour
 
     public GameObject popupWindow; // pops up menu when game over
 
+    private PlayerData playerData;
+
     private void OnEnable()
     {
+        // fetch playerdata for analytics
+        playerData = FindObjectOfType<PlayerData>();
+        if (playerData == null)
+        {
+            UnityEngine.Debug.LogError("PlayerData not found in scene");
+        }
 
         // request random cards from card database, no dupes.
         RequestCards(maxAnswers, ExperimentalGM.instance.cardDB.FlashCards.Length);
@@ -202,6 +210,8 @@ public class FlashCards_E : MonoBehaviour
     // Check if user input equals the Cards answer
     public IEnumerator CheckAnswer(string buttonText)
     {
+        playerData.IncrementTotalAnswers(); // increment total answers for analytics
+
         // disable buttons for a time
         foreach (var button in buttons)
             button.enabled = false;
