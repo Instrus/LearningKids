@@ -3,7 +3,21 @@ guid: bccdd1c0ad8856f4db96a879e43ae0a0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - usernamePanel: {instanceID: 0}
+  - userProfilePanel: {instanceID: 0}
+  - leaderboardPanel: {instanceID: 0}
+  - leaderboardContent: {instanceID: 0}
+  - userDataPrefab: {instanceID: 0}
+  - profileUsernameTxt: {instanceID: 0}
+  - profileUserScoreTxt: {instanceID: 0}
+  - errorText: {instanceID: 0}
+  - usernameInput: {instanceID: 0}
+  - passwordInput: {instanceID: 0}
+  - login_Page: {instanceID: 0}
+  - PIN_Screen: {instanceID: 0}
+  - Stats_Screen: {fileID: 6301826051966984310, guid: 9764b09fd2007c84a856bcbe72ecc0f4, type: 3}
+  - playerData: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
