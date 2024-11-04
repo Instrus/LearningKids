@@ -38,7 +38,7 @@ public class DB_Connections : MonoBehaviour
     // pages (navigation)
     public GameObject login_Page;
     public GameObject PIN_Screen;
-    public GameObject Stats_Screen;
+    //public GameObject Stats_Screen;
 
     public string username = "";
     public int score;
@@ -371,8 +371,8 @@ public class DB_Connections : MonoBehaviour
 
         }
         leaderboardPanel.SetActive(true);
-        userProfilePanel.SetActive(false);
-        Stats_Screen.SetActive(false);
+        //userProfilePanel.SetActive(false);
+        //Stats_Screen.SetActive(false);
     }
 
     public void CloseLeaderBoard()
@@ -386,7 +386,7 @@ public class DB_Connections : MonoBehaviour
         }
         leaderboardPanel.SetActive(false);
         //userProfilePanel.SetActive(true);
-        Stats_Screen.SetActive(true);
+        //Stats_Screen.SetActive(true);
     }
 private IEnumerator NoDuplicates()
     {
