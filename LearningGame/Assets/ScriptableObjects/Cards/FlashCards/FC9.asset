@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contactInfoCard: 1
   question: 'Whose phone numbers is this: 123-123-1234?'
-  answer: Jake Schmidt's
+  answer: PHONEBOOK CONTACT
   FIBAnswerPool: []
   answerIndex: 2
   answerSet:

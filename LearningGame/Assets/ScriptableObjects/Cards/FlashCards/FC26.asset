@@ -15,9 +15,10 @@ MonoBehaviour:
   contactInfoCard: 0
   question: How do you ask someone for their name?
   answer: '"What is your name?"'
+  FIBAnswerPool: []
   answerIndex: 3
   answerSet:
   - Do I know you?
   - Say nothing
   - Tickle their feet
-  - '"What Is your name?"'
+  - '"What is your name?"'

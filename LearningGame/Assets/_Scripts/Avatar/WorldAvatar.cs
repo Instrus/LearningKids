@@ -41,9 +41,18 @@ public class WorldAvatar : MonoBehaviour
         hatIndex = cosmeticsIndices[1];
         shirtIndex = cosmeticsIndices[2];
 
-        avatar.sprite = cosmeticDatabase.GetCosmetic(CosmeticsDatabase.CosmeticType.Avatar, avatarIndex);
-        hat.sprite = cosmeticDatabase.GetCosmetic(CosmeticsDatabase.CosmeticType.Hat, hatIndex);
-        shirt.sprite = cosmeticDatabase.GetCosmetic(CosmeticsDatabase.CosmeticType.Clothes, shirtIndex);
+        //avatar.sprite = cosmeticDatabase.GetCosmetic(CosmeticsDatabase.CosmeticType.Avatar, avatarIndex);
+        //hat.sprite = cosmeticDatabase.GetCosmetic(CosmeticsDatabase.CosmeticType.Hat, hatIndex);
+        //shirt.sprite = cosmeticDatabase.GetCosmetic(CosmeticsDatabase.CosmeticType.Clothes, shirtIndex);
+
+        // load from unlocked cosmetics in playerData
+        int a = playerData.unlockedAvatarIDs[avatarIndex];
+        int b = playerData.unlockedClothesIDs[shirtIndex];
+        int c = playerData.unlockedHatsIDs[hatIndex];
+
+        avatar.sprite = cosmeticDatabase.GetCosmetic(CosmeticsDatabase.CosmeticType.Avatar, a);
+        shirt.sprite = cosmeticDatabase.GetCosmetic(CosmeticsDatabase.CosmeticType.Clothes, b);
+        hat.sprite = cosmeticDatabase.GetCosmetic(CosmeticsDatabase.CosmeticType.Hat, c);
     }
 
 }

@@ -76,13 +76,13 @@ public class HealthManager : MonoBehaviour
         if (healthType == Type.Player && health < 1)
         {
             FIB_E FIB = transform.parent.GetComponent<FIB_E>();
-            FIB.PopupWindow();
+            StartCoroutine(FIB.PopupWindow());
         } 
         // NPC loses
         else if (healthType == Type.NPC && health < 1)
         {
             FIB_E FIB = transform.parent.GetComponent<FIB_E>();
-            FIB.PopupWindow();
+            StartCoroutine(FIB.PopupWindow());
         }
 
 

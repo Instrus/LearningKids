@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contactInfoCard: 0
   question: If you don't have a phone, who should you ask for help in an emergency
-  answer: The Nearest Adult
+  answer: The nearest adult
+  FIBAnswerPool: []
   answerIndex: 2
   answerSet:
   - Your friend

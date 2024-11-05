@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contactInfoCard: 0
   question: Is your parent a guardian?
-  answer: Yes
+  answer: yes
   FIBAnswerPool:
   - yes
   answerIndex: 0

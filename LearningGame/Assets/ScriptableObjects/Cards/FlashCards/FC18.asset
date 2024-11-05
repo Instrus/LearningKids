@@ -15,9 +15,10 @@ MonoBehaviour:
   contactInfoCard: 0
   question: What colors do firefighters wear
   answer: Red, orange, yellow, or brown
+  FIBAnswerPool: []
   answerIndex: 2
   answerSet:
   - Pink
   - Blue
-  - Red, orange, yellow, and brown
+  - Red, orange, yellow, or brown
   - White and gold

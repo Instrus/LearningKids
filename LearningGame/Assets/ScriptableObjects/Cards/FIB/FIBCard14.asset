@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FIBCard14
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What are the first three numbers of  a phone number
-  answer: Area Code
+  question: What are the first three numbers of a phone number
+  answer: Area code
   FIBAnswerPool:
   - Area
   - Area code

@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contactInfoCard: 0
   question: What are the first three numbers of a phone number called?
-  answer: Area Code
+  answer: Area code
+  FIBAnswerPool: []
   answerIndex: 3
   answerSet:
-  - Zip Code
+  - Zip code
   - The Da Vinci Code
   - Address
-  - Area Code
+  - Area code

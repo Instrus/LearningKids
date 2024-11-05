@@ -15,9 +15,10 @@ MonoBehaviour:
   contactInfoCard: 0
   question: Who stops fires?
   answer: Fire Department
+  FIBAnswerPool: []
   answerIndex: 1
   answerSet:
   - The doctor
-  - Fire department
+  - Fire Department
   - Your guardian
   - The ambulance

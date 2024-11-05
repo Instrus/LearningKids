@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contactInfoCard: 0
   question: What colors do police wear?
-  answer: Black And Blue
+  answer: Black and blue
+  FIBAnswerPool: []
   answerIndex: 1
   answerSet:
   - Black and yellow

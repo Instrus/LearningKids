@@ -18,13 +18,4 @@ MonoBehaviour:
   FIBAnswerPool:
   - No
   answerIndex: 0
-  answerSet:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  answerSet: []

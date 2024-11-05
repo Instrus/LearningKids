@@ -49,6 +49,12 @@ public class FIB_E : MonoBehaviour
     TextMeshProUGUI header;
     TextMeshProUGUI desc;
 
+    // wrong answer notification
+    [SerializeField] GameObject wrongAnswerWindow;
+    [SerializeField] TextMeshProUGUI wrongAnswerText;
+
+    [SerializeField] AudioClip endGameNoise;
+
     private PlayerData playerData;
 
     private void OnEnable()
@@ -95,9 +101,18 @@ public class FIB_E : MonoBehaviour
     }
 
     // Popup called when enemy loses or player loses (health = 0) - called by HealthManager
-    public void PopupWindow()
+    public IEnumerator PopupWindow()
     {
-        // depending if they win or lose change text
+
+        // play end noise
+        yield return new WaitForSeconds(1f);
+
+        if (endGameNoise != null)
+        {
+            AudioManager.instance.PlayClip(endGameNoise);
+        }
+
+        yield return new WaitForSeconds(.5f);
 
         if (popup != null)
         {
@@ -110,9 +125,24 @@ public class FIB_E : MonoBehaviour
         // can use the popup window also to show the correct answer (dont do endgame at that point)
     }
 
+    public IEnumerator PopUpWrongAnwerWindow()
+    {
+        yield return new WaitForSeconds(1f);
+        wrongAnswerWindow.SetActive(true);
+        wrongAnswerText.text = "The correct answer was: \n" + card.FIBAnswerPool[0];
+        
+    }
+
+    public void CloseWrongAnswerWindow()
+    {
+        wrongAnswerWindow.SetActive(false);
+        wrongAnswerText.text = "";
+    }
+
     //ENDGAME() - popup will call EndGame on "OK"
     public void EndGame()
     {
+        CloseWrongAnswerWindow();
         questionBox.color = Color.white;
         questionText.text = "";
         map.SetActive(false);
@@ -198,6 +228,7 @@ public class FIB_E : MonoBehaviour
             StartCoroutine(FlashRed());
             // damage player if answered incorrectly
             playerHealth.TakeDamage();
+            StartCoroutine(PopUpWrongAnwerWindow());
         }
 
         // clear user input

@@ -227,7 +227,7 @@ public class FlashCards_E : MonoBehaviour
                 yield return null;
             }
 
-            else if (buttonText == card.answer)
+            else if (string.Equals(buttonText, card.answer, StringComparison.OrdinalIgnoreCase))
             {
                 Instantiate(check, player.transform.position, Quaternion.identity); // add enabled VFX check (currently bugged if vsync not on)
 
