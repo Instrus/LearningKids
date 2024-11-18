@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: FC11
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What information should you provide during an emergency
+  question: What information should you provide during an emergency?
   answer: Your name and parent's phone number
+  FIBAnswerPool: []
   answerIndex: 2
   answerSet:
   - Nothing

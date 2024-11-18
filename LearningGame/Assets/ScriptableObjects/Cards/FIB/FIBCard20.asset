@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FIBCard20
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What do you need to know in order to get home
+  question: What do you need to know in order to get home?
   answer: Home address
   FIBAnswerPool:
   - Address

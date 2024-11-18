@@ -13,11 +13,17 @@ MonoBehaviour:
   m_Name: FIBCard5
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: Who wIill help with emergencies
+  question: Who will help with emergencies?
   answer: Police
   FIBAnswerPool:
   - Police
   - Cop
   - Cops
+  - Firefighter
+  - Firefighters
+  - Paramedic
+  - Paramedics
+  - Medics
+  - Medic
   answerIndex: 0
   answerSet: []

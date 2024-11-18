@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: FC6
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What Color Is A Firetruck
+  question: What color is a firetruck
   answer: Red
+  FIBAnswerPool: []
   answerIndex: 1
   answerSet:
   - Green

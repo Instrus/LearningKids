@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FC7
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: If you don't have a phone, who should you ask for help in an emergency
+  question: If you don't have a phone, who should you ask for help in an emergency?
   answer: The nearest adult
   FIBAnswerPool: []
   answerIndex: 2

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FIBCard6
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What is a guadian?
+  question: What is a guardian?
   answer: Caregiver
   FIBAnswerPool:
   - Caregiver

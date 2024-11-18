@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FIBCard19
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What color is a Police officers uniform
+  question: What color is a Police officers uniform?
   answer: Blue and black
   FIBAnswerPool:
   - Blue

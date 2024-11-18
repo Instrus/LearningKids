@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: FC33
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What personal information should you know for emergencies
+  question: What personal information should you know for emergencies?
   answer: Your guardian's names, phone numbers, and addreses
+  FIBAnswerPool: []
   answerIndex: 1
   answerSet:
   - Spaghetti recipe

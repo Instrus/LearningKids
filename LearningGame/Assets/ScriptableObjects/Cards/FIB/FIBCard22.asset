@@ -10,16 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a45b466b81d4ed647997ae970b0141ef, type: 3}
-  m_Name: FIBCard17
+  m_Name: FIBCard22
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: What colors are Police Cars?
-  answer: White And Blue
+  question: What should you do if a stranger asks for your information?
+  answer: Refuse
   FIBAnswerPool:
-  - White
-  - Blue
-  - White and blue
-  - Black
-  - White and black
+  - say no
+  - refuse
+  - deny
+  - don't share
+  - dont share
+  - do not share
+  - dont give
+  - don't give
+  - don't give it
+  - dont give it
+  - don't share it
+  - dont share it
   answerIndex: 0
   answerSet: []

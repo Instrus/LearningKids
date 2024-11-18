@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contactInfoCard: 0
   question: Why Should You Never Play With Fire
-  answer: It is hot and can be destructive or painful
+  answer: It's dangerous
+  FIBAnswerPool: []
   answerIndex: 0
   answerSet:
-  - It is hot and can be destructive or painful
+  - It's dangerous
   - It is cold
   - It is safe
   - It is fun

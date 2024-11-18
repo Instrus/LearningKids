@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FC4
   m_EditorClassIdentifier: 
   contactInfoCard: 0
-  question: Who helps wIth serious injuries
+  question: Who helps with serious injuries
   answer: Paramedics
   FIBAnswerPool: []
   answerIndex: 2
